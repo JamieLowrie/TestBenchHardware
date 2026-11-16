@@ -1,0 +1,29 @@
+source sweep, setpoint 12 V
+ RL=  1e9: Vout  12.00 Iload    0.0 mA  P(Q301) 0.01 W  Iopamp   0.1 mA  P(Rb1)    0 mW P(Rbyp)    0 mW
+ RL= 1000: Vout  12.00 Iload   12.0 mA  P(Q301) 0.05 W  Iopamp   0.2 mA  P(Rb1)    0 mW P(Rbyp)    0 mW
+ RL=  120: Vout  12.00 Iload  100.0 mA  P(Q301) 0.23 W  Iopamp   1.3 mA  P(Rb1)    1 mW P(Rbyp)    1 mW
+ RL=  100: Vout  10.21 Iload  102.1 mA  P(Q301) 0.40 W  Iopamp   2.9 mA  P(Rb1)    6 mW P(Rbyp)    2 mW
+ RL=   60: Vout   2.87 Iload   47.9 mA  P(Q301) 0.47 W  Iopamp   9.9 mA  P(Rb1)   84 mW P(Rbyp)   15 mW
+ RL=   40: Vout   1.45 Iload   36.2 mA  P(Q301) 0.35 W  Iopamp  11.3 mA  P(Rb1)  110 mW P(Rbyp)   19 mW
+ RL=   20: Vout   0.58 Iload   29.0 mA  P(Q301) 0.26 W  Iopamp  12.1 mA  P(Rb1)  128 mW P(Rbyp)   22 mW
+ RL=   10: Vout   0.26 Iload   26.4 mA  P(Q301) 0.22 W  Iopamp  12.4 mA  P(Rb1)  134 mW P(Rbyp)   23 mW
+ RL=    5: Vout   0.13 Iload   25.2 mA  P(Q301) 0.20 W  Iopamp  12.6 mA  P(Rb1)  137 mW P(Rbyp)   23 mW
+ RL=  0.1: Vout   0.00 Iload   24.2 mA  P(Q301) 0.19 W  Iopamp  12.7 mA  P(Rb1)  140 mW P(Rbyp)   24 mW
+short to battery through 0.1 R, setpoint 0 / 6 / 12 V
+ Vbat  5 set  0.00: I into pin   16.1 mA  P(Q302)~0.16 W  Iopamp   -2.7 mA  P(Rb2)    7 mW P(Rbyp)    9 mW P(Rq)   10 mW  oa -4.8
+ Vbat  5 set  6.02: I into pin  -65.0 mA  P(Q302)~-0.69 W  Iopamp    7.9 mA  P(Rb2)    9 mW P(Rbyp)   10 mW P(Rq)   11 mW  oa 15.7
+ Vbat  5 set 12.00: I into pin  -65.0 mA  P(Q302)~-0.69 W  Iopamp    7.9 mA  P(Rb2)    9 mW P(Rbyp)   10 mW P(Rq)   11 mW  oa 15.7
+ Vbat 12 set  0.00: I into pin   18.8 mA  P(Q302)~0.32 W  Iopamp   -4.1 mA  P(Rb2)   23 mW P(Rbyp)   28 mW P(Rq)   28 mW  oa -4.8
+ Vbat 12 set  6.02: I into pin   18.8 mA  P(Q302)~0.32 W  Iopamp   -4.1 mA  P(Rb2)   23 mW P(Rbyp)   28 mW P(Rq)   28 mW  oa -4.8
+ Vbat 12 set 12.00: I into pin   18.8 mA  P(Q302)~0.32 W  Iopamp   -4.1 mA  P(Rb2)   23 mW P(Rbyp)   28 mW P(Rq)   28 mW  oa -4.8
+ Vbat 24 set  0.00: I into pin   22.9 mA  P(Q302)~0.66 W  Iopamp   -6.4 mA  P(Rb2)   74 mW P(Rbyp)   81 mW P(Rq)   83 mW  oa -4.8
+ Vbat 24 set  6.02: I into pin   22.9 mA  P(Q302)~0.66 W  Iopamp   -6.4 mA  P(Rb2)   74 mW P(Rbyp)   81 mW P(Rq)   83 mW  oa -4.8
+ Vbat 24 set 12.00: I into pin   22.9 mA  P(Q302)~0.66 W  Iopamp   -6.4 mA  P(Rb2)   74 mW P(Rbyp)   81 mW P(Rq)   83 mW  oa -4.8
+ Vbat 32 set  0.00: I into pin   25.6 mA  P(Q302)~0.94 W  Iopamp   -8.0 mA  P(Rb2)  124 mW P(Rbyp)  133 mW P(Rq)  135 mW  oa -4.7
+ Vbat 32 set  6.02: I into pin   25.6 mA  P(Q302)~0.94 W  Iopamp   -8.0 mA  P(Rb2)  124 mW P(Rbyp)  133 mW P(Rq)  135 mW  oa -4.7
+ Vbat 32 set 12.00: I into pin   25.6 mA  P(Q302)~0.94 W  Iopamp   -8.0 mA  P(Rb2)  124 mW P(Rbyp)  133 mW P(Rq)  135 mW  oa -4.7
+pull-up loads at 0 V setpoint
+ 5 V via 1000: Vout 0.00 mV  sink 5.00 mA
+ 5 V via 10000: Vout 0.00 mV  sink 0.50 mA
+ 12 V via 1000: Vout 0.00 mV  sink 12.00 mA
+ 5 V via 220: Vout 1748.65 mV  sink 14.78 mA

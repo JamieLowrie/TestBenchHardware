@@ -1,0 +1,12 @@
+RL=  1e9 CL=  1p step 1.00->12.00: rise   47.0us fall   47.0us over   -0.0mV under    0.0mV
+RL=  1e9 CL=  1p step 5.02->5.12: rise   32.4us fall   32.4us over    0.0mV under    0.0mV
+RL=  120 CL=  1p step 1.00->12.00: rise   47.5us fall   45.6us over    0.0mV under    0.0mV
+RL=  120 CL=  1p step 5.02->5.12: rise   32.0us fall   32.0us over    0.0mV under    0.0mV
+RL=  1e9 CL= 10n step 1.00->12.00: rise   46.8us fall   78.0us over   -0.0mV under   37.3mV
+RL=  1e9 CL= 10n step 5.02->5.12: rise   32.0us fall   32.0us over    0.0mV under    0.0mV
+RL=  120 CL= 10n step 1.00->12.00: rise   47.3us fall   47.6us over    0.0mV under    2.5mV
+RL=  120 CL= 10n step 5.02->5.12: rise   31.5us fall   31.5us over    0.0mV under    0.0mV
+RL=  1e9 CL=100n step 1.00->12.00: rise  108.9us fall  499.9us over 1351.4mV under  249.7mV
+RL=  1e9 CL=100n step 5.02->5.12: rise   74.0us fall  106.0us over    9.3mV under   51.5mV
+RL= 1000 CL=  1u step 1.00->12.00: rise  480.0us fall  499.9us over  594.6mV under   76.9mV
+RL= 1000 CL=  1u step 5.02->5.12: rise  296.9us fall  328.0us over   50.4mV under   62.7mV

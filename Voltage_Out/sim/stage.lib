@@ -1,0 +1,17 @@
+* ---- behavioural OPA197-like op-amp: GBW 10 MHz, SR 20 V/us, 2nd pole 40 MHz, RRO with 0.15 V headroom, Isc 65 mA
+.subckt opa inp inn vp vn out
+* input: transconductance with slew limit (Imax/C = SR)
+Bgm 0 n1 I = 2e-3*tanh(v(inp,inn)*1)
+* note: tanh(vd*1) ~ linear for vd<<1; gm_eff = 2mA/V ; SR = 2mA/C1
+C1 n1 0 100p
+R1 n1 0 1e9
+* keep the internal node near the rails (output recovers from saturation in ~0.2 us like the real part)
+Blim n1 0 I = 1e-2*(max(v(n1)*3.125 - (v(vp)+0.3), 0) + min(v(n1)*3.125 - (v(vn)-0.3), 0))
+* GBW = gm/(2*pi*C) = 2e-3/(2*pi*100p) = 3.2 MHz  -> scale gm via E
+E2 n2 0 n1 0 3.125
+R2 n2 n3 1k
+C2 n3 0 4p
+* output clamp to rails
+Bclamp n4 0 V = min(max(v(n3), v(vn)+0.15), v(vp)-0.15)
+Bo 0 out I = max(min((v(n4)-v(out))/15, 0.065), -0.065)
+.ends

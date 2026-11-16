@@ -1,0 +1,177 @@
+Plugin v0.0.1 running on KiCad 8.0.9 and Python 3.11.5 (main, Dec 24 2024, 05:27:06) [MSC v.1942 64 bit (AMD64)] on win32.
+Imported C:\Users\Jamie\Dropbox\FooBarEngineering\Git\TestBenchHardware\Voltage_Out\VoltageOut.kicad_pcb, with 119 footprints, 702 tracks, and 62 drawings.
+Imported C:\Users\Jamie\Dropbox\FooBarEngineering\Git\TestBenchHardware\Voltage_Out\analog_out.kicad_pcb, with 25 footprints, 113 tracks, and 0 drawings.
+Imported C:\Users\Jamie\Dropbox\FooBarEngineering\Git\TestBenchHardware\Voltage_Out\5v to +16v -5V.kicad_pcb, with 15 footprints, 54 tracks, and 0 drawings.
+Root (+ PCB C:\Users\Jamie\Dropbox\FooBarEngineering\Git\TestBenchHardware\Voltage_Out\VoltageOut.kicad_pcb)
+├─ MicroProcessor
+├─ analog_out1 (+ PCB C:\Users\Jamie\Dropbox\FooBarEngineering\Git\TestBenchHardware\Voltage_Out\analog_out.kicad_pcb)
+├─ analog_out (+ PCB C:\Users\Jamie\Dropbox\FooBarEngineering\Git\TestBenchHardware\Voltage_Out\analog_out.kicad_pcb)
+├─ +16_-5V_PSU (+ PCB C:\Users\Jamie\Dropbox\FooBarEngineering\Git\TestBenchHardware\Voltage_Out\5v to +16v -5V.kicad_pcb)
+PCB C:\Users\Jamie\Dropbox\FooBarEngineering\Git\TestBenchHardware\Voltage_Out\VoltageOut.kicad_pcb
+  /94bfa9ad: Q3
+  /88d07283: Q2
+  /b099d2b8: Q1
+  /00000000/60437762: IC2
+  /00000000/9185db64: U3
+  /41301135/d75dff8e: C16
+  /381f79a3/1d4223ef: Q8
+  /381f79a3/b1c7d49b: D10
+  /00000000/a2406f48: Z1
+  /41301135/c520d1e5: R28
+  /00000000/27691a97: C7
+  /41301135/df36fdb0: R27
+  /00000000/1c8bb0f8: C5
+  /381f79a3/dae18226: Q11
+  /00000000/cafcf2ec: R14
+  /41301135/82f03fc4: R20
+  /52d46b0b/24102a6d: C25
+  /381f79a3/7beb5964: C29
+  /52d46b0b/31e0ecbd: R33
+  /381f79a3/d75dff8e: C28
+  /a95a95f9: D4
+  /00000000/c08d1053: Y1
+  /00000000/f0d10da0: C9
+  /00000000/45e1a0ad: R12
+  /00000000/2cfe28fa: U1
+  /52d46b0b/088ba83b: FB1
+  /52d46b0b/00357801: C24
+  /381f79a3/83770cca: R46
+  /00000000/027a845e: C1
+  /41301135/dcef7fc0: Q5
+  /52d46b0b/e44c3b72: L2
+  /41301135/b1c7d49b: D7
+  /381f79a3/fb7c3449: R45
+  /00000000/896677af: R8
+  /00000000/29394499: C14
+  /41301135/3683c5bc: C20
+  /381f79a3/a9d35afd: R39
+  /41301135/69e123a5: R18
+  /d32a4da5: D3
+  /41301135/3947c1b8: R21
+  /41301135/d6344dd3: Q6
+  /41301135/1d4223ef: Q4
+  /381f79a3/98bbd701: R41
+  /52d46b0b/59e3f888: C21
+  /00000000/e3104162: D5
+  /52d46b0b/660dcf70: C27
+  /381f79a3/027367b3: R40
+  /00000000/4351e8d4: C13
+  /41301135/0b0c7b5d: U4
+  /00000000/5c293741: R15
+  /381f79a3/c0c5f3ad: R42
+  /41301135/fb7c3449: R29
+  /bc5b49cf: J1
+  /52d46b0b/0f4c4813: R31
+  /381f79a3/d6344dd3: Q10
+  /52d46b0b/e6f91cbe: U6
+  /52d46b0b/9d3c5217: R32
+  /00000000/3782d985: C10
+  /381f79a3/3683c5bc: C32
+  /00000000/f51264b8: R10
+  /381f79a3/69e123a5: R34
+  /41301135/24fb6e03: C18
+  /52d46b0b/d9393ccb: C26
+  /381f79a3/3947c1b8: R37
+  /41301135/027367b3: R24
+  /00000000/665bbcf2: C15
+  /00000000/d037aa4a: R17
+  /41301135/cfae9632: R22
+  /00000000/076b63d4: C3
+  /41301135/7beb5964: C17
+  /00000000/bfc03416: C8
+  /41301135/98bbd701: R25
+  /52d46b0b/46f39b41: C23
+  /00000000/b5ef2393: R11
+  /00000000/ea15fbcf: J2
+  /52d46b0b/9ea8780d: C22
+  /00000000/913b418d: L1
+  /381f79a3/0b0c7b5d: U7
+  /41301135/a9d35afd: R23
+  /00000000/60fcd551: C11
+  /381f79a3/dcef7fc0: Q9
+  /00000000/428e8e89: R9
+  /00000000/0322e23a: C4
+  /381f79a3/df36fdb0: R43
+  /381f79a3/262a63da: C31
+  /49fdf362: D2
+  /41301135/262a63da: C19
+  /41301135/724af20f: D8
+  /381f79a3/c949570e: R35
+  /00000000/39009a1c: D6
+  /52d46b0b/68050d72: U5
+  /00000000/928ed9cb: R13
+  /00000000/a4a3db8b: R7
+  /41301135/c949570e: R19
+  /00000000/916e1d4b: R6
+  /381f79a3/c520d1e5: R44
+  /381f79a3/82f03fc4: R36
+  /41301135/83770cca: R30
+  /41301135/dae18226: Q7
+  /00000000/d8e41a52: IC1
+  /52d46b0b/c69c6659: D9
+  /00000000/a0fa0e6b: C12
+  /80fa9a78: R4
+  /381f79a3/24fb6e03: C30
+  /aa1309f8: D1
+  /bc3a1553: R1
+  /381f79a3/724af20f: D11
+  /d2730e75: R3
+  /41301135/c0c5f3ad: R26
+  /381f79a3/cfae9632: R38
+  /00000000/56b863af: R16
+  /00000000/53c69045: C6
+  /00000000/3902b84c: U2
+  /513b6adf: R2
+  /00000000/fce57bb8: C2
+  /00000000/834f88ec: R5
+  /00000000/4eb9e574: JP3
+  /00000000/6af725a4: JP2
+  /00000000/446ee545: JP1
+PCB C:\Users\Jamie\Dropbox\FooBarEngineering\Git\TestBenchHardware\Voltage_Out\analog_out.kicad_pcb
+  /83770cca: R13
+  /0b0c7b5d: U1
+  /d75dff8e: C1
+  /262a63da: C4
+  /c520d1e5: R11
+  /dae18226: Q4
+  /b1c7d49b: D1
+  /3683c5bc: C5
+  /7beb5964: C2
+  /cfae9632: R5
+  /df36fdb0: R10
+  /027367b3: R7
+  /82f03fc4: R3
+  /24fb6e03: C3
+  /c949570e: R2
+  /98bbd701: R8
+  /69e123a5: R1
+  /1d4223ef: Q1
+  /3947c1b8: R4
+  /a9d35afd: R6
+  /d6344dd3: Q3
+  /724af20f: D2
+  /dcef7fc0: Q2
+  /c0c5f3ad: R9
+  /fb7c3449: R12
+PCB C:\Users\Jamie\Dropbox\FooBarEngineering\Git\TestBenchHardware\Voltage_Out\5v to +16v -5V.kicad_pcb
+  /088ba83b: FB1
+  /68050d72: U1
+  /e44c3b72: L2
+  /46f39b41: C3
+  /d9393ccb: C6
+  /9d3c5217: R4
+  /c69c6659: D5
+  /0f4c4813: R3
+  /660dcf70: C7
+  /e6f91cbe: U2
+  /00357801: C4
+  /9ea8780d: C2
+  /59e3f888: C1
+  /24102a6d: C5
+  /31e0ecbd: R5
+Could not find footprint Q401 in board C:\Users\Jamie\Dropbox\FooBarEngineering\Git\TestBenchHardware\Voltage_Out\analog_out.kicad_pcb.
+ERR.2	sub-PCB has no anchor selected
+ SubPCB: C:\Users\Jamie\Dropbox\FooBarEngineering\Git\TestBenchHardware\Voltage_Out\analog_out.kicad_pcb
+ERR.2	sub-PCB has no anchor selected
+ SubPCB: C:\Users\Jamie\Dropbox\FooBarEngineering\Git\TestBenchHardware\Voltage_Out\analog_out.kicad_pcb
+Saved.

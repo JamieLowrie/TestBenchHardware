@@ -1,0 +1,30 @@
+{
+  "subpcb": {
+    "VoltageOut.kicad_pcb": {
+      "anchor": "J1"
+    },
+    "analog_out.kicad_pcb": {
+      "anchor": null
+    },
+    "5v to +16v -5V.kicad_pcb": {
+      "anchor": "D5"
+    }
+  },
+  "sheet": {
+    "": {
+      "checked": false
+    },
+    "/00000000-0000-0000-0000-00006613a21f": {
+      "checked": false
+    },
+    "/381f79a3-536c-4fe8-942e-945c6204a0fc": {
+      "checked": true
+    },
+    "/41301135-2a44-4bfd-90ef-600f6383d92a": {
+      "checked": true
+    },
+    "/52d46b0b-13dd-4c2a-8d5f-8c1e1c21c7d5": {
+      "checked": true
+    }
+  }
+}
