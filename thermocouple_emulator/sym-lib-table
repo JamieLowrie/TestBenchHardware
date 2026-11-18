@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "TCEmu")(type "KiCad")(uri "${KIPRJMOD}/TCEmu.kicad_sym")(options "")(descr "Thermocouple emulator symbols"))
+)

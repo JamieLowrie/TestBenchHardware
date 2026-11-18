@@ -1,0 +1,18 @@
+{
+  "subpcb": {
+    "thermocouple_emulator.kicad_pcb": {
+      "anchor": "PS1"
+    },
+    "Micro.kicad_pcb": {
+      "anchor": "IC2"
+    }
+  },
+  "sheet": {
+    "": {
+      "checked": false
+    },
+    "/d1770296-d1cc-4912-9d04-8ffb1ceb21d4": {
+      "checked": true
+    }
+  }
+}

@@ -1,0 +1,5 @@
+(version 1)
+# phase copper (up to ~100 V) keeps 0.5 mm from everything else (IPC-2221 B4, solder-masked, with margin)
+(rule hv_creepage
+  (constraint clearance (min 0.5mm))
+  (condition "A.NetName == 'P?_IN' || A.NetName == 'P?_OUT'"))

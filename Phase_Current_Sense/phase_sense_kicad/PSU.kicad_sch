@@ -1,0 +1,27 @@
+(kicad_sch (version 20230121) (generator eeschema)
+
+  (uuid 4c4be976-dde9-4c32-b95d-22cc86484a29)
+
+  (paper "A4")
+
+  (lib_symbols
+  )
+
+
+  (hierarchical_label "5VOut" (shape input) (at 144.78 88.9 0) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid 2fada33c-1035-4e30-95ad-30cf6f5d7a5c)
+  )
+  (hierarchical_label "12VOut" (shape input) (at 144.78 69.85 0) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid a6e49523-c58e-4a84-a731-72927f51f114)
+  )
+  (hierarchical_label "12Vin" (shape input) (at 66.04 69.85 180) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify right))
+    (uuid b215810e-1f6f-4db5-80c7-1f8b652a99f8)
+  )
+  (hierarchical_label "Gnd" (shape input) (at 66.04 91.44 180) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify right))
+    (uuid f3bc9d3d-df2d-4194-a968-f9038295f69d)
+  )
+)

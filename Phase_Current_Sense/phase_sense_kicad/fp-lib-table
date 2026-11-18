@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name "phase_sense")(type "KiCad")(uri "${KIPRJMOD}/phase_sense.pretty")(options "")(descr "Project footprints"))
+)
