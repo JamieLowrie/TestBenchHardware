@@ -81,7 +81,10 @@ def place(lib_id, ref, value, x, y, fp="", lcsc="", su=None, rot=0, mirror=None,
 
 def part(ref, x, y, **kw):
     p = byref[ref]
-    return place(p["lib"], ref, p["value"], x, y, p["fp"], p["lcsc"], su=p["uuid"], **kw)
+    e = place(p["lib"], ref, p["value"] + (" DNF" if p.get("dnp") else ""), x, y, p["fp"], p["lcsc"], su=p["uuid"], **kw)
+    if p.get("dnp"):
+        sym = sch.schematicSymbols[-1]; sym.dnp = True; sym.inBom = False
+    return e
 
 def pe(ref, num): return placed[ref][num]
 
@@ -91,6 +94,8 @@ def power(net, x, y):
     ref = f"#PWR{pwr[0]:03d}"
     if net == "GND":
         place("power:GND", ref, "GND", x, y, show_ref=False, vpos=(x, y + 4.4), vjust=None)
+    elif net == "+3.3VA":
+        place("power:+3.3VA", ref, "+3.3VA", x, y, show_ref=False, vpos=(x, y - 3.6), vjust=None)
     else:
         place("power:+3V3", ref, "+3V3", x, y, show_ref=False, vpos=(x, y - 3.6), vjust=None)
 
@@ -160,7 +165,7 @@ def channel(k, X, x0, y0):
     rail = y0 - g(11)
     vx, vy = pe(U, "10")
     W((vx, vy), (vx, rail))
-    power("+3V3", vx, rail)
+    power("+3.3VA", vx, rail)
     part(Cb, x0 + g(6), rail + g(1.5))
     W((vx, rail), pe(Cb, "1"))
     W(pe(Cb, "2"), (pe(Cb, "2")[0], pe(Cb, "2")[1] + G)); power("GND", pe(Cb, "2")[0], pe(Cb, "2")[1] + G)
@@ -192,13 +197,15 @@ def channel(k, X, x0, y0):
     fx, fy = pe(U, "9")
     W((fx, fy), (fx + g(2), fy)); label("FAULT_N", fx + g(2), fy)
 
-    # ---- GAIN_SEL_0/1 + GND tied together
+    # ---- GAIN_SEL from the MCU (GS0 / GS1 via 10k), optional DNF 0R to force 0
     gx = x0 + g(6)
-    gys = []
-    for n in ("16", "14", "15"):
-        px, py = pe(U, n); W((px, py), (gx, py)); gys.append(py)
-    W((gx, min(gys)), (gx, max(gys)), (gx, max(gys) + G)); power("GND", gx, max(gys) + G)
-    text("GAIN_SEL=00 -> +/-66.7 A", gx + g(1.5), max(gys) + g(1.8), 1.0)
+    px, py = pe(U, "15"); W((px, py), (gx, py), (gx, py + G)); power("GND", gx, py + G)
+    for n, net in (("16", "GS0"), ("14", "GS1")):
+        px, py = pe(U, n); W((px, py), (x0 + g(8.5), py)); label(net, x0 + g(8.5), py)
+    text("GAIN_SEL_1 / _0 = bus GS1 / GS0 from the MCU (latched at sensor power-up):\n"
+         "00 = 19.8 mV/A +/-66.7 A (default)   01 = 16.5 mV/A +/-80 A\n"
+         "10 = 13.2 mV/A +/-100 A   11 = 9.9 mV/A +/-133 A",
+         x0 - g(17), y0 + g(7.4), 1.0)
 
     # ---- phase voltage divider (needs board GND linked to drive DC-)
     Rt1, Rt2, Rb, Cd = f"R{k}4", f"R{k}5", f"R{k}6", f"C{k}4"
@@ -220,50 +227,80 @@ for k, X in enumerate("ABC", start=1):
     channel(k, X, g(24 + (k - 1) * 43), g(25))
 
 # ---------------------------------------------------------------- MCU interface block
-x0, y0 = g(22), g(62)
-box(x0 - g(14), y0 - g(11), x0 + g(46), y0 + g(14))
-text("MCU INTERFACE  (controller lives on the same PCB, X < 42 mm)", x0 - g(13.5), y0 - g(9.5), 2.0, bold=True)
-part("J1", x0, y0, rpos=(x0 - 1.27, y0 - g(5.5)), vpos=(x0 - 1.27, y0 + g(6.5)))
-p1 = pe("J1", "1"); W(p1, (p1[0] - g(3), p1[1]), (p1[0] - g(3), p1[1] - g(2))); power("+3V3", p1[0] - g(3), p1[1] - g(2))
-for n in "2345678":
+x0, y0 = g(22), g(64)
+box(x0 - g(14), y0 - g(13), x0 + g(50), y0 + g(21))
+text("MCU INTERFACE  (controller lives on the same PCB, X < 53.6 mm)", x0 - g(13.5), y0 - g(11.5), 2.0, bold=True)
+part("J1", x0, y0 + g(1), rpos=(x0 - 1.27, y0 - g(7.5)), vpos=(x0 - 1.27, y0 + g(9.5)))
+p1 = pe("J1", "1"); W(p1, (p1[0] - g(3), p1[1]), (p1[0] - g(3), p1[1] - g(1))); power("+3V3", p1[0] - g(3), p1[1] - g(1))
+for i, (n, rr, bus) in enumerate((("11", "R3", "GS0"), ("12", "R4", "GS1"))):
+    px, py = pe("J1", n); W((px, py), (px - g(5), py)); label(f"{bus}_MCU", px - g(5), py, "left")
+    xr_, yr_ = x0 + g(10), y0 + g(4 + 3 * i)
+    part(rr, xr_, yr_, rot=270, rpos=(xr_, yr_ - 1.8), vpos=(xr_, yr_ + 2.2), rjust=None, vjust=None)
+    a_, b_ = pe(rr, "1"), pe(rr, "2")
+    da, db = (-g(1), g(1)) if a_[0] < b_[0] else (g(1), -g(1))
+    W(a_, (a_[0] + da, a_[1])); label(f"{bus}_MCU", a_[0] + da, a_[1], "left" if da < 0 else "right")
+    W(b_, (b_[0] + db, b_[1])); label(bus, b_[0] + db, b_[1], "left" if db < 0 else "right")
+text("R3/R4: 10k series, limit back-feed\ninto the sensors while Q1 is off", x0 + g(6), y0 + g(9.5), 1.0)
+for n in ("2", "3", "4", "5", "6", "7", "8", "13"):
     net = byref["J1"]["pins"][n]
     px, py = pe("J1", n); W((px, py), (px - g(5), py)); label(net, px - g(5), py, "left")
-ga, gb = pe("J1", "9"), pe("J1", "10")
-W(ga, (ga[0] - g(2), ga[1]), (gb[0] - g(2), gb[1]), (gb[0] - g(2), gb[1] + g(2))); W(gb, (gb[0] - g(2), gb[1]))
-power("GND", gb[0] - g(2), gb[1] + g(2))
-text("IA/IB/IC, VA/VB/VC -> CH32V203 ADC inputs\nFAULT_N -> TIM1_BKIN or GPIO (active low, ~77 A)\nJ1 is optional: wire the labels to the MCU and delete J1", x0 + g(4), y0 - g(3), 1.27)
-part("J8", x0 + g(8), y0 + g(9), rpos=(x0 + g(7), y0 + g(7.5)), show_val=False)
+g9, g10, g14 = pe("J1", "9"), pe("J1", "10"), pe("J1", "14")
+for q in (g9, g10, g14): W(q, (q[0] - g(2), q[1]))
+W((g9[0] - g(2), g9[1]), (g10[0] - g(2), g10[1]))
+W((g14[0] - g(2), g14[1]), (g14[0] - g(2), g14[1] + G)); power("GND", g14[0] - g(2), g14[1] + G)
+W((g10[0] - g(2), g10[1]), (g10[0] - g(2.6), g10[1] + G * 0.0)) if False else None
+W((g10[0] - g(2), g10[1]), (g10[0] - g(2), g10[1] + g(0.5)))
+power("GND", g10[0] - g(2), g10[1] + g(0.5))
+text("IA/IB/IC, VA/VB/VC -> CH32V203 ADC inputs\nFAULT_N -> TIM1_BKIN or GPIO (active low)\n"
+     "GS0/GS1/SNS_OFF -> GPIO push-pull outputs\nJ1 is optional: wire the labels to the MCU and delete J1",
+     x0 + g(4), y0 - g(9), 1.27)
+part("J8", x0 + g(8), y0 + g(16), rpos=(x0 + g(7), y0 + g(14.5)), show_val=False)
 j8 = pe("J8", "1"); W(j8, (j8[0] - g(1), j8[1]), (j8[0] - g(1), j8[1] + g(2))); power("GND", j8[0] - g(1), j8[1] + g(2))
-text("J8: DRIVE DC- LINK (M4 T44001)\nRequired for VA/VB/VC: ties this\nboard's GND to the drive's DC-.", x0 + g(10), y0 + g(8.4), 1.27)
+text("J8: DRIVE DC- LINK (M4 T44001)\nRequired for VA/VB/VC: ties this\nboard's GND to the drive's DC-.", x0 + g(10), y0 + g(15.4), 1.27)
 
-# pull-up and bulk cap
-xr = x0 + g(20)
-part("R1", xr, y0)
+# sensor-rail pull-up and bulk cap
+xr = x0 + g(25)
+part("R1", xr, y0 - g(1))
 a, b = pe("R1", "1"), pe("R1", "2")
-W(a, (a[0], a[1] - g(2))); power("+3V3", a[0], a[1] - g(2))
+W(a, (a[0], a[1] - g(2))); power("+3.3VA", a[0], a[1] - g(2))
 W(b, (b[0], b[1] + g(2))); label("FAULT_N", b[0], b[1] + g(2), "down")
-part("C1", xr + g(8), y0)
+part("C1", xr + g(8), y0 - g(1))
 a, b = pe("C1", "1"), pe("C1", "2")
-W(a, (a[0], a[1] - g(2))); power("+3V3", a[0], a[1] - g(2))
+W(a, (a[0], a[1] - g(2))); power("+3.3VA", a[0], a[1] - g(2))
 W(b, (b[0], b[1] + g(2))); power("GND", b[0], b[1] + g(2))
-text("3V3 bulk", xr + g(8) + 2.54, y0 + 3.6, 1.0)
-text("OCF pull-up\n(wired-OR)", xr + 2.54, y0 + 3.6, 1.0)
+text("sensor-rail bulk", xr + g(8) + 2.54, y0 - g(1) + 3.6, 1.0)
+text("OCF pull-up\n(wired-OR)", xr + 2.54, y0 - g(1) + 3.6, 1.0)
+
+# sensor power switch: +3V3 -> Q1 (P-FET) -> +3.3VA; R2 keeps it ON until the MCU drives SNS_OFF high
+xq, yq = xr + g(3), y0 + g(11)
+part("Q1", xq, yq, rot=90, rpos=(xq, yq - g(4.2)), vpos=(xq, yq - g(3.4)), rjust=None, vjust=None)
+gt = pe("Q1", "1")
+for pn, net in (("2", "+3V3"), ("3", "+3.3VA")):
+    ex, ey = pe("Q1", pn); d = g(2) if ex > xq else -g(2)
+    W((ex, ey), (ex + d, ey), (ex + d, ey - G)); power(net, ex + d, ey - G)
+gy = gt[1] + (G if gt[1] > yq else -G)
+part("R2", gt[0] + g(4), gy + g(2))
+W(gt, (gt[0], gy), (pe("R2", "1")[0], gy), pe("R2", "1"))
+W((gt[0], gy), (gt[0] - g(5), gy)); label("SNS_OFF", gt[0] - g(5), gy, "left")
+b2 = pe("R2", "2"); power("GND", b2[0], b2[1])
+text("Q1: sensor power switch. GAIN_SEL is latched when\nthe sensors power up: set GS0/GS1, drive SNS_OFF\n"
+     "high >= 10 ms, then low. Sensors are ON by default.", xq + g(7), yq + g(2), 1.0)
 # power flags
-for i, net in enumerate(["+3V3", "GND"]):
-    fx, fy = xr + g(16 + i * 5), y0
+for i, net in enumerate(["+3V3", "GND", "+3.3VA"]):
+    fx, fy = x0 + g(40 + i * 4), y0 - g(1)
     up = net != "GND"
     place("power:PWR_FLAG", f"#FLG{i+1:02d}", "PWR_FLAG", fx, fy, rot=180 if up else 0, show_ref=False,
           vpos=(fx, fy + 4.6 if up else fy - 4.6), vjust=None)
     power(net, fx, fy)
-place("Mechanical:MountingHole", "H1", "M3", x0 + g(36), y0 + g(6), byref["H1"]["fp"], su=byref["H1"]["uuid"])
-place("Mechanical:MountingHole", "H2", "M3", x0 + g(41), y0 + g(6), byref["H2"]["fp"], su=byref["H2"]["uuid"])
+place("Mechanical:MountingHole", "H1", "No6", x0 + g(40), y0 + g(17), byref["H1"]["fp"], su=byref["H1"]["uuid"])
+place("Mechanical:MountingHole", "H2", "No6", x0 + g(45), y0 + g(17), byref["H2"]["fp"], su=byref["H2"]["uuid"])
 
 # ---------------------------------------------------------------- notes
 text("DESIGN NOTES\n"
      "1. Drive (IN) -> IP+ ... IP- -> motor (OUT), 0.85 mOhm. VIOUT = 1.65 V + 19.8 mV/A for drive->motor current.\n"
      "2. VIOUT -> 1k / 10n RC (fc ~16 kHz) -> I[A/B/C] -> MCU ADC. The 1k isolates the 10n (VIOUT max load 6 nF).\n"
      "3. VOC = 3.3 V x 10k/(33k+10k) = 0.767 V -> OCF trips at ~116 % FS (~77 A). OCF is open-drain; all three wired-OR on FAULT_N.\n"
-     "4. GAIN_SEL_1/0 tied low = range +/-66.7 A (internal 1M pull-downs; tied for noise immunity). VREF unused.\n"
+     "4. GAIN_SEL_1/0 driven by the MCU (GS1/GS0, 10k series each); latched at sensor power-up -> cycle Q1 (SNS_OFF). VREF unused.\n"
      "5. Power the sensors from the SAME 3V3 as the MCU VDDA: output is ratiometric, supply drift cancels.\n"
      "6. Thermal: 60 A DC = ~3 W per sensor (too much for SOIC-16). ~30 A RMS continuous with 2 oz copper.\n"
      "7. Spacing: phase copper >= 0.5 mm from all other nets (DRC rule). NOTE: with J8 linked, board GND = drive DC- (not isolated).\n"

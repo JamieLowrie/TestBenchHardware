@@ -32,8 +32,11 @@ TOUT = {"C": 65.5, "B": 80.0, "A": 94.2}
 STRIP = {"C": (56.1, 69.7), "B": (70.5, 84.1), "A": (84.9, 98.5)}
 CX = {X: STRIP[X][0] + 6.2 for X in "ABC"}
 CY = 29.0
-BAND = (51.0, 58.2)                              # In1 crossing band: no phase vias here
+BAND = (51.0, 59.6)                              # In1 crossing band: no phase vias here
 LVBOT = 66.4
+LANE = {n: BAND[0] + 0.6 + 0.7 * i for i, n in
+        enumerate(("+3.3VA", "IA", "IB", "IC", "VA", "VB", "VC", "FAULT_N", "GS0", "GS1"))}
+LVIA = {"+3.3VA": 1.3, "I": 5.9, "V": 6.6, "FAULT_N": 2.3, "GS0": 4.4, "GS1": 3.6}   # lane-via X offset from the sensor centre
 PILLARS = {"H1": (6.995, 66.405), "H2": (91.995, 16.405)}
 H2K_F, H2K_IN = 4.0, 2.4                         # copper keep-away around the H2 screw: top (head) / other layers
 BLOCKS = [(42.2, 0.0, 56.7, 21.7)]
@@ -112,8 +115,15 @@ for X in "ABC":
     pos[f"R{k}4"] = (c1, r0 + 8.6, 0)                    # pad 1 (left) = motor-side tap
     pos[f"R{k}5"] = (c1, r0 + 11.2, 180)                 # pad 1 (right) = VMID
     pos[f"R{k}6"] = (c1, r0 + 13.8, 0); pos[f"C{k}4"] = (c2, r0 + 13.8, 0)
+    # GAIN_SEL straps (0402, vertical) right of the sensor's LV pins 14/16
+    # GAIN_SEL straps (0402, vertical) in the free slots of the right column; pins 14/16 reach them on In1
+    # tops of all four = GAIN_SEL net; bottoms: GND (x 5.3) / 3V3 (x 6.6)
 pos["J8"] = (TDC, TY_T, 0)
-pos["J1"] = (51.0, 50.6, 0)                              # 2x5 header in a small pocket left of strip C
+pos["J1"] = (51.0, 50.6, 0)                              # 2x7 header in a small pocket left of strip C
+pos["Q1"] = (52.6, 46.6, 0)                              # sensor power switch
+pos["R2"] = (49.5, 46.6, 90)
+pos["R3"] = (48.4, 62.6, 90)
+pos["R4"] = (48.4, 66.0, 90)
 pos["R1"] = (CX["C"] + 2.4, 60.6, 0)
 pos["C1"] = (CX["C"] + 2.4, 63.0, 0)
 pos["H1"] = (*PILLARS["H1"], 0); pos["H2"] = (*PILLARS["H2"], 0)
@@ -135,6 +145,8 @@ for p in PARTS:
         n = p["pins"].get(pad.GetNumber())
         skip = DSN and n and (n in HV_NETS or hv_div)
         if n and not skip: pad.SetNet(net(n))
+    if p.get("dnp"):
+        fp.SetAttributes(fp.GetAttributes() | pcbnew.FP_EXCLUDE_FROM_BOM | pcbnew.FP_EXCLUDE_FROM_POS_FILES)
     fp.Value().SetVisible(False)
     if p["ref"].startswith(("J", "H", "R", "C")): fp.Reference().SetVisible(False)
     fps[p["ref"]] = fp
@@ -216,36 +228,91 @@ for X in "ABC":
     # VCC: pin 10 -> round the outside of pin 9 -> decoupling cap C{k}1
     _p10 = padpos(f"U{k}", "10"); _c1 = padpos(f"C{k}1", "1")
     for a_, c_ in ((_p10, (cx + 6.2, _p10[1])), ((cx + 6.2, _p10[1]), (cx + 6.2, CY + 5.6)), ((cx + 6.2, CY + 5.6), _c1)):
-        track("+3V3", a_, c_, w=0.3, lock=True)
+        track("+3.3VA", a_, c_, w=0.3, lock=True)
+    # GAIN_SEL bus: pins 16/14 -> vias under the body -> In1 straight down -> vias above the band -> B.Cu to the lane vias
+    u = lambda du, dv: (cx + du, CY + dv)
+    p16, p14 = padpos(f"U{k}", "16"), padpos(f"U{k}", "14")
+    track("GS0", p16, (cx + 3.3, p16[1]), w=0.25, lock=True); track("GS0", (cx + 3.3, p16[1]), u(2.9, -3.9), w=0.25, lock=True)
+    track("GS1", p14, u(2.9, p14[1] - CY), w=0.25, lock=True)
+    for n_, top, jog in (("GS0", u(2.9, -3.9), u(LVIA["GS0"], -2.4)), ("GS1", u(2.9, p14[1] - CY), u(LVIA["GS1"], p14[1] - CY + 0.7))):
+        bv = (jog[0], BAND[0] - 0.2)
+        xvia(n_, top); xvia(n_, bv)
+        track(n_, top, jog, w=0.25, lock=True, layer="In1"); track(n_, jog, bv, w=0.25, lock=True, layer="In1")
+        track(n_, bv, (bv[0], LANE[n_]), w=0.25, lock=True, layer="B")
+    # +3.3VA: two In1 drops from the local rail straight into the 3V3 lane (top lane, so nothing to cross)
+    r1a, c1a = padpos(f"R{k}1", "1"), padpos(f"C{k}1", "1")
+    for vv, pp in (((cx + 0.9, r1a[1] - 0.8), r1a), ((cx + 5.75, c1a[1] + 1.15), c1a)):
+        xvia("+3.3VA", vv); track("+3.3VA", pp, vv, w=0.25, lock=True)
+        track("+3.3VA", vv, (vv[0], LANE["+3.3VA"]), w=0.25, lock=True, layer="In1")
+    # VIOUT: pin 12 -> via under the body -> In1 -> via above R{k}3
+    p12, r3 = padpos(f"U{k}", "12"), padpos(f"R{k}3", "1")
+    track(f"VIOUT_{X}", p12, (cx + 2.6, p12[1]), w=0.25, lock=True); xvia(f"VIOUT_{X}", (cx + 2.6, p12[1]))
+    for a_, c_ in (((cx + 2.6, p12[1]), (r3[0], p12[1] + 0.975)), ((r3[0], p12[1] + 0.975), (r3[0], r3[1] - 0.9))):
+        track(f"VIOUT_{X}", a_, c_, w=0.25, lock=True, layer="In1")
+    xvia(f"VIOUT_{X}", (r3[0], r3[1] - 0.9)); track(f"VIOUT_{X}", (r3[0], r3[1] - 0.9), r3, w=0.25, lock=True)
+    # FAULT_N: pin 9 -> via under the body -> In1 straight down -> via above the band -> B.Cu to its lane via
+    p9 = padpos(f"U{k}", "9"); fv1, fv2 = (cx + 2.9, p9[1]), (cx + LVIA["FAULT_N"], BAND[0] - 0.2)
+    track("FAULT_N", p9, fv1, w=0.25, lock=True); xvia("FAULT_N", fv1); xvia("FAULT_N", fv2)
+    for a_, c_ in ((fv1, (fv2[0], fv1[1] + 0.6)), ((fv2[0], fv1[1] + 0.6), fv2)):
+        track("FAULT_N", a_, c_, w=0.25, lock=True, layer="In1")
+    track("FAULT_N", fv2, (fv2[0], LANE["FAULT_N"]), w=0.25, lock=True, layer="B")
+    # IX: C{k}3 pad 1 -> F.Cu channel between the two part columns -> its In1 lane via
+    c3 = padpos(f"C{k}3", "1"); iy = LANE[f"I{X}"]; ix = cx + LVIA["I"]
+    for a_, c_ in ((c3, (ix, c3[1] + 0.775)), ((ix, c3[1] + 0.775), (ix, iy))):
+        track(f"I{X}", a_, c_, w=0.25, lock=True)
 # GND stitching (F / In2 / B)
 for X in "ABC":
     cx = CX[X]; sr = STRIP[X][1]
-    for p_ in ((cx + 2.8, 65.4), (cx + 5.0, 65.4), (sr - 0.7, CY - 4.0), (cx + 6.6, BAND[1] - 0.4),
-               (cx + 4.45, CY + 5.6)):
+    for p_ in ((cx + 2.8, 65.4), (cx + 5.0, 65.4), (cx + 1.6, CY - 3.0), (cx + 6.6, BAND[1] - 0.4),
+               ):
         xvia("GND", p_)
-for p_ in ((54.5, 12.0), (54.5, 22.0), (54.5, 32.0), (54.5, 42.0), (50.0, 46.8), (49.4, 61.8), (54.4, 61.8)):
+for p_ in ((54.5, 12.0), (54.5, 22.0), (54.5, 32.0), (54.5, 40.0), (49.0, 44.9), (49.4, 67.7), (54.4, 67.7)):
     xvia("GND", p_)
 
 # In1 lanes across the band: one per LV net, 0.7 mm pitch, a via into each LV area that uses it
-LANE = {n: BAND[0] + 0.6 + 0.7 * i for i, n in enumerate(("+3V3", "IA", "IB", "IC", "VA", "VB", "VC", "FAULT_N"))}
-USE = {"C": ("+3V3", "IC", "VC", "FAULT_N"), "B": ("+3V3", "IB", "VB", "FAULT_N"), "A": ("+3V3", "IA", "VA", "FAULT_N")}
+USE = {X: ("+3.3VA", f"I{X}", f"V{X}", "FAULT_N", "GS0", "GS1") for X in "ABC"}
 for n, y_ in LANE.items():
     xs = []
     for X in "CBA":
         if n in USE[X]:
-            xs.append(CX[X] + 2.0 + USE[X].index(n) * 1.3)
-    track(n, (56.6, y_), (max(xs), y_), w=0.25, lock=True, layer="In1")
+            xs.append(CX[X] + LVIA[n if n in LVIA else n[0]])
+    track(n, (57.2, y_), (max(xs), y_), w=0.25, lock=True, layer="In1")
     for x_ in xs: xvia(n, (x_, y_))
 
-_r1 = padpos("R1", "2"); _fx = CX["C"] + 2.0 + 3 * 1.3          # FAULT_N pull-up -> lane via
-for a_, c_ in ((_r1, (_r1[0] + 1.0, _r1[1] - 1.0)), ((_r1[0] + 1.0, _r1[1] - 1.0), (_fx, _r1[1] - 2.7)),
-               ((_fx, _r1[1] - 2.7), (_fx, LANE["FAULT_N"]))):
+_r1 = padpos("R1", "2"); _fx = CX["C"] + LVIA["FAULT_N"]        # FAULT_N pull-up -> lane via
+for a_, c_ in ((_r1, (_r1[0], _r1[1] - 0.9)), ((_r1[0], _r1[1] - 0.9), (_fx, _r1[1] - 1.5)),
+               ((_fx, _r1[1] - 1.5), (_fx, LANE["FAULT_N"]))):
     track("FAULT_N", a_, c_, w=0.25, lock=True)
-_j1 = padpos("J1", "1")   # 3V3: pin 1 over the top of pin 2, down into its lane
-track("+3V3", _j1, (_j1[0] + 1.27, _j1[1] - 1.27), w=0.25, lock=True)
-track("+3V3", (_j1[0] + 1.27, _j1[1] - 1.27), (54.8, _j1[1] - 1.27), w=0.25, lock=True)
-xvia("+3V3", (54.8, _j1[1] - 1.27))
-track("+3V3", (54.8, _j1[1] - 1.27), (56.6, LANE["+3V3"]), w=0.25, lock=True, layer="In1")
+
+# J1 / Q1 -> lane starts, all on In1 (lanes start at X 57.2 inside the band)
+LX = 57.2
+def ipath(net_, pts, w=0.25):
+    for a_, c_ in zip(pts, pts[1:]): track(net_, a_, c_, w=w, lock=True, layer="In1")
+qd = padpos("Q1", "3")
+track("+3.3VA", qd, (54.6, qd[1]), w=0.3, lock=True); xvia("+3.3VA", (54.6, qd[1]))
+ipath("+3.3VA", [(54.6, qd[1]), (56.1, qd[1] + 1.5), (56.1, LANE["+3.3VA"] - 0.5), (56.6, LANE["+3.3VA"]), (LX, LANE["+3.3VA"])], 0.3)
+j = {n: padpos("J1", n) for n in ("2", "3", "4", "5", "6", "7", "8")}
+ipath("IA", [j["2"], (55.4, j["2"][1]), (55.4, LANE["IA"] - 0.4), (55.8, LANE["IA"]), (LX, LANE["IA"])])
+ipath("IB", [j["3"], (j["3"][0] + 1.27, j["3"][1] - 1.27), (54.8, j["3"][1] - 1.27), (54.8, LANE["IB"] - 0.4),
+             (55.2, LANE["IB"]), (LX, LANE["IB"])])
+ipath("IC", [j["4"], (j["4"][0] + 0.56, LANE["IC"]), (LX, LANE["IC"])])
+ipath("VA", [j["5"], (j["5"][0] + 1.27, j["5"][1] - 1.27), (LX, j["5"][1] - 1.27)])
+ipath("VB", [j["6"], (j["6"][0] + 0.96, LANE["VB"]), (LX, LANE["VB"])])
+ipath("VC", [j["7"], (j["7"][0] + 1.27, j["7"][1] - 1.27), (54.7, j["7"][1] - 1.27), (54.7 + (j["7"][1] - 1.27 - LANE["VC"]), LANE["VC"]),
+             (LX, LANE["VC"])])
+ipath("FAULT_N", [j["8"], (55.0, j["8"][1]), (55.0 + (j["8"][1] - LANE["FAULT_N"]), LANE["FAULT_N"]), (LX, LANE["FAULT_N"])])
+# GS0 / GS1 from the series resistors R3 / R4 (bus side = pad 2)
+r3b, r4b = padpos("R3", "2"), padpos("R4", "2")
+g0v, g1v = (r3b[0] - 0.7, r3b[1] - 0.6), (r4b[0] - 0.7, r4b[1] - 0.6)
+track("GS0", r3b, g0v, w=0.25, lock=True); xvia("GS0", g0v)
+track("GS1", r4b, g1v, w=0.25, lock=True); xvia("GS1", g1v)
+gy0 = j["8"][1] + 1.27                      # gap below pins 7/8
+x0_ = 55.0 + (gy0 - (j["8"][1])) + 0.0
+ipath("GS0", [g0v, (g0v[0] + (g0v[1] - gy0), gy0), (54.9, gy0), (54.9 + (gy0 - LANE["GS0"]), LANE["GS0"])])
+if 54.9 + (gy0 - LANE["GS0"]) > LX: pass
+gy1 = j["8"][1] + 3 * 1.27                  # gap below pins 9/10 -> 11/12
+ipath("GS1", [g1v, (g1v[0] + (g1v[1] - gy1), gy1), (54.6, gy1), (54.6 + 3.0, gy1 - 3.0),
+              (54.6 + 3.0 + (gy1 - 3.0 - LANE["GS1"]), LANE["GS1"])])
 
 # ---------------------------------------------------------------- GND pours, keepouts
 def rule_area(poly, layers=("F", "B"), nopour=False, vias=False):
@@ -259,8 +326,8 @@ def rule_area(poly, layers=("F", "B"), nopour=False, vias=False):
     for x, y in poly: ol.Append(mm(x), mm(y))
     b.Add(z)
 LV = {X: rect(CX[X] + 0.8, CY - 4.8, STRIP[X][1], LVBOT) for X in "ABC"}
-DCS = [(SPLIT_X + 0.2, 0.5), (68.0, 0.5), (68.0, 9.8), (55.3, 9.8), (55.3, 47.4), (SPLIT_X + 0.2, 47.4)]   # DC- -> J1 strip
-JPAD = rect(48.4, 46.0, 55.3, 62.6)
+DCS = [(SPLIT_X + 0.2, 0.5), (68.0, 0.5), (68.0, 9.8), (55.3, 9.8), (55.3, 44.4), (SPLIT_X + 0.2, 44.4)]   # DC- -> J1 strip
+JPAD = rect(47.4, 44.2, 55.3, 68.4)
 CROSS = rect(48.4, BAND[0], W - 0.5, BAND[1])
 GND = {"F": [LV["C"], LV["B"], LV["A"], DCS, JPAD],
        "B": [LV["C"], LV["B"], LV["A"], DCS, JPAD],
@@ -274,8 +341,8 @@ if DSN:
     for L, r_ in (("F", H2K_F), ("B", H2K_IN), ("In1", H2K_IN)):
         rule_area(coords(Point(*PILLARS["H2"]).buffer(r_, 24))[0], (L,))
     ALL = ("F", "In1", "B")
-    rule_area(rect(0, 0, 48.2, H), ALL)                                       # controller side
-    rule_area(rect(48.2, 0, 56.0, 45.8), ALL); rule_area(rect(48.2, 62.8, 56.0, H), ALL)
+    rule_area(rect(0, 0, 47.2, H), ALL)                                       # controller side
+    rule_area(rect(47.2, 0, 56.0, 44.0), ALL); rule_area(rect(47.2, 68.6, 56.0, H), ALL)
     rule_area(rect(W - 0.9, 0, W, H), ALL)
     for X in "ABC":
         y4 = pos[f"R{'ABC'.index(X) + 1}4"][1]
@@ -299,11 +366,11 @@ silk("DC-", TDC, 0.95, 0.8, bold=True)
 silk("FROM DRIVE", 77.0, 11.2, 0.9, bold=True); silk("TO MOTOR", 77.0, 71.6, 0.9, bold=True)
 y = 1.0
 while y < H - 1.0:
-    if not (45.0 < y < 62.0): line(SPLIT_X, y, SPLIT_X, min(y + 1.5, H - 1.0), pcbnew.F_SilkS, 0.15)
+    if not (43.0 < y < 69.0): line(SPLIT_X, y, SPLIT_X, min(y + 1.5, H - 1.0), pcbnew.F_SilkS, 0.15)
     y += 3.0
 silk("CONTROLLER AREA", 25.0, 36.0, 1.5, bold=True)
 silk("(X < 53.6 mm)", 25.0, 38.6, 1.2, bold=True)
-silk("3-PH SENSE  ACS37002  rev F", 25.0, 41.2, 0.8)
+silk("3-PH SENSE  ACS37002  rev H", 25.0, 41.2, 0.8)
 CM = pcbnew.Cmts_User
 for r_ in BLOCKS: rect_outline(*r_, CM, 0.1)
 for r_ in POSTS:  rect_outline(*r_, CM, 0.2)
@@ -313,10 +380,10 @@ note("block", 49.5, 19.0)
 note("box post: max 3.3 mm", 49.45, 13.0); note("box post: max 3.3 mm", 49.45, 69.6)
 note("centre platform 0.5 mm below PCB (Y 21.5-61.2): no lead protrusion", 25.0, 44.0)
 note("open wiring strips: Y<10.5 and Y>72.3 (terminals only here)", 25.0, 45.4)
-pin = ["1 3V3", "2 IA", "3 IB", "4 IC", "5 VA", "6 VB", "7 VC", "8 FLT", "9 GND", "10 GND"]
+pin = ["1 3V3", "2 IA", "3 IB", "4 IC", "5 VA", "6 VB", "7 VC", "8 FLT", "9 GND", "10 GND", "11 GS0", "12 GS1", "13 SOFF", "14 GND"]
 for i, t in enumerate(pin):
-    silk(t, 44.0 - (0 if i % 2 == 0 else 5.5), 49.0 + (i // 2) * 2.54, 0.8, layer=pcbnew.B_SilkS)
-silk("J1 (pin 1 square, top-left)", 41.0, 46.6, 0.8, layer=pcbnew.B_SilkS, bold=True)
+    silk(t, 44.0 - (0 if i % 2 == 0 else 6.0), 50.6 + (i // 2) * 2.54, 0.8, layer=pcbnew.B_SilkS)
+silk("J1 (pin 1 square, top-left)", 41.0, 47.0, 0.8, layer=pcbnew.B_SilkS, bold=True)
 silk("1", pos["J1"][0] - 1.8, pos["J1"][1], 0.8)
 
 pcbnew.SaveBoard(OUT, b)

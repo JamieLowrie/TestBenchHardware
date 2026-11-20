@@ -157,6 +157,9 @@ def finish(base, ses, out):
             for q in pts:
                 u = seg_t(q, t)
                 if u is not None: us.append(u)
+            if o.GetClass() != "PCB_VIA" and o.GetLayer() == t.GetLayer():
+                for u_, q in ((0.0, P(t.GetStart())), (1.0, P(t.GetEnd()))):
+                    if seg_t(q, o) is not None: us.append(u_)
         for pd in pads.get(n, []):
             for u in (0.0, 1.0):
                 q = t.GetStart() if u == 0 else t.GetEnd()
@@ -168,6 +171,26 @@ def finish(base, ses, out):
             na = (a_[0] + lo * (c_[0] - a_[0]), a_[1] + lo * (c_[1] - a_[1])); nc = (a_[0] + hi * (c_[0] - a_[0]), a_[1] + hi * (c_[1] - a_[1]))
             t.SetStart(pcbnew.VECTOR2I(pcbnew.FromMM(na[0]), pcbnew.FromMM(na[1]))); t.SetEnd(pcbnew.VECTOR2I(pcbnew.FromMM(nc[0]), pcbnew.FromMM(nc[1])))
             print("trimmed", n, a_, c_, "->", na, nc)
+    for t in [t for t in b.GetTracks() if t.GetClass() == "PCB_TRACK" and t.GetLength() < pcbnew.FromMM(0.01)]:
+        b.Remove(t)
+    # T-junctions: split a segment wherever another track of its net ends on its middle (KiCad wants end-to-end)
+    changed = True
+    while changed:
+        changed = False
+        segs = [t for t in b.GetTracks() if t.GetClass() == "PCB_TRACK"]
+        ends = [(t.GetNetname(), t.GetLayer(), P(q)) for t in segs for q in (t.GetStart(), t.GetEnd())]
+        for t in segs:
+            a_, c_ = P(t.GetStart()), P(t.GetEnd())
+            for n, L, q in ends:
+                if n != t.GetNetname() or L != t.GetLayer() or q in (a_, c_): continue
+                u = seg_t(q, t)
+                if u is not None and 0.01 < u < 0.99:
+                    t2 = pcbnew.PCB_TRACK(b); t2.SetLayer(t.GetLayer()); t2.SetWidth(t.GetWidth()); t2.SetNet(t.GetNet())
+                    t2.SetLocked(t.IsLocked())
+                    qv = pcbnew.VECTOR2I(pcbnew.FromMM(q[0]), pcbnew.FromMM(q[1]))
+                    t2.SetStart(qv); t2.SetEnd(t.GetEnd()); t.SetEnd(qv); b.Add(t2)
+                    changed = True; break
+            if changed: break
     pcbnew.ZONE_FILLER(b).Fill(b.Zones())
     pcbnew.SaveBoard(out, b); print("saved", out)
 

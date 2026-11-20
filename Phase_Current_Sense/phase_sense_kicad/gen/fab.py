@@ -45,7 +45,7 @@ pos = {r["Ref"]: r for r in csv.DictReader(open("/tmp/pos.csv"))}
 fpd = {fp.GetReference(): fp for fp in b.GetFootprints()}
 groups = {}
 for p in PARTS:
-    if p["lcsc"]:
+    if p["lcsc"] and not p.get("dnp"):
         groups.setdefault((p["value"], p["fp"].split(":")[1], p["lcsc"]), []).append(p["ref"])
 with open(os.path.join(OUT, "fab", "BOM_JLCPCB.csv"), "w", newline="") as f:
     w = csv.writer(f); w.writerow(["Comment", "Designator", "Footprint", "LCSC Part #"])
@@ -54,7 +54,7 @@ with open(os.path.join(OUT, "fab", "BOM_JLCPCB.csv"), "w", newline="") as f:
 with open(os.path.join(OUT, "fab", "CPL_JLCPCB.csv"), "w", newline="") as f:
     w = csv.writer(f); w.writerow(["Designator", "Mid X", "Mid Y", "Layer", "Rotation"])
     for p in PARTS:
-        if not p["lcsc"]: continue
+        if not p["lcsc"] or p.get("dnp"): continue
         if p["ref"] in pos:
             r = pos[p["ref"]]; x, y, rot = float(r["PosX"]), float(r["PosY"]), float(r["Rot"])
         else:                                   # THT parts are not in the KiCad pos file

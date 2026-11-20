@@ -1,4 +1,4 @@
-# 3-Channel Motor Phase Current + Voltage Sense — ACS37002 (KiCad 7 project), rev F — 4 layers
+# 3-Channel Motor Phase Current + Voltage Sense — ACS37002 (KiCad 7 project), rev H — 4 layers
 
 Open `phase_sense.kicad_pro` in KiCad 7, 8 or 9 (8/9 will offer to upgrade the files).
 
@@ -11,7 +11,7 @@ Open `phase_sense.kicad_pro` in KiCad 7, 8 or 9 (8/9 will offer to upgrade the f
 
 ## Layout — rev F
 - The sensor circuit is pushed as far right as it goes. **The controller gets X < 53.6 mm** (dashed line on silk). Only J1
-  and its little ground pad (X 48.4–55.3, Y 46–62.6) stick over the line, as the interface.
+  and its little ground pad (X 47.4–55.3, Y 44–68.4, with Q1, R2, R3 and R4) stick over the line, as the interface.
 - **Top-right window (Y < 10.5), from the middle outwards: DC− (J8, X 64.0), C IN 73.5, B IN 83.0, A IN 94.2.**
 - **Bottom-right window (Y > 72.3): C OUT 65.5, B OUT 80.0, A OUT 94.2.**
 - Each phase is one strip, C | B | A from left to right: IN terminal → sensor pins 1–4 (IP+) → pins 5–8 (IP−) → OUT terminal.
@@ -23,24 +23,63 @@ Open `phase_sense.kicad_pro` in KiCad 7, 8 or 9 (8/9 will offer to upgrade the f
 - The A IN copper splits around the H2 pillar screw. It keeps 4 mm clear on top (under the screw head) and 2.4 mm clear on B.Cu.
   That still leaves about 5 mm on F.Cu and about 8.5 mm on B.Cu past the screw.
 
+## Gain select — driven by the MCU
+The GAIN_SEL pins of all three sensors are bussed and brought to J1:
+- **GS0** goes to every sensor's GAIN_SEL_0 (pin 16), through R3 (10 kΩ).
+- **GS1** goes to every sensor's GAIN_SEL_1 (pin 14), through R4 (10 kΩ).
+- Inside each sensor there is a 1 MΩ pull-down, so a floating or reset GPIO gives **00**.
+
+| GS1 / GS0 | Sensitivity | Range | Current per ADC count |
+|---|---|---|---|
+| 0 0 (default) | 19.8 mV/A | ±66.7 A | ~41 mA |
+| 0 1 | 16.5 mV/A | ±80 A | ~49 mA |
+| 1 0 | 13.2 mV/A | ±100 A | ~61 mA |
+| 1 1 | 9.9 mV/A | ±133.3 A | ~81 mA |
+
+**The ACS37002 only reads GAIN_SEL when it powers up**, so changing GS0/GS1 while it runs does nothing. To make a new
+setting take effect, the board switches the sensors' supply:
+- **Q1 (AO3401A, P-channel MOSFET)** feeds the sensors from +3V3 on a separate rail, **+3.3VA**.
+- **R2** holds Q1 on, so the sensors run as soon as the board is powered.
+- **SNS_OFF (J1 pin 13)**: drive it high to switch the sensors off.
+
+Change the range from firmware like this:
+1. Set GS0 / GS1 to the new code (push-pull outputs).
+2. Drive SNS_OFF **high** for at least 10 ms. The sensors power down and +3.3VA falls below the power-on-reset level.
+3. Drive SNS_OFF **low**. The sensors restart and latch the new GAIN_SEL.
+4. Wait about 1 ms, then re-measure the zero-current offset and change the firmware scale.
+5. Ignore FAULT_N and the ADC readings while the sensors are off (FAULT_N reads low then).
+
+The overcurrent trip set by the VOC divider is a fraction of the selected range, so it moves up with the range. Check the
+ACS37002 datasheet's VOC equation if you rely on FAULT_N at the higher ranges.
+
+Why R3/R4 are there: while +3.3VA is off, a GPIO held high would feed the sensors through their input protection diodes.
+That could stop them resetting properly. 10 kΩ limits it to a fraction of a milliamp. At 3.3 V the pin still sees about 3.2 V,
+well above the 2.25 V logic-high threshold.
+
+The VOC overcurrent trip divider and the FAULT_N pull-up sit on +3.3VA. Q1 drops about 3 mV, which slightly offsets the
+ratiometric output (3.3 V seen by the MCU's ADC vs. ~3.297 V at the sensors). The firmware zero-calibration absorbs it.
+
 ## Current sign
 Drive → motor current enters IP+, so it reads **positive**: `I = (adc − zero) × (3.3 / 4096) / 0.0198` → ≈ 40.7 mA/count.
 
-## J1 – interface header (2.54 mm, 2×5) at X 51.0 / 53.54, Y 50.6–60.8
-Wire these nets to the CH32V203 on your controller layout, or keep J1 as a test header. Pin 1 is the square pad (top-left);
+## J1 – interface header (2.54 mm, 2×7) at X 51.0 / 53.54, Y 50.6–65.8
+Wire these nets to the CH32V203 on your controller layout, or keep J1 as a header. Pin 1 is the square pad (top-left);
 odd pins in the left column, even pins in the right. The pinout is printed on the back.
 
 | Pin | Signal | Notes |
 |---|---|---|
-| 1 | 3V3 | Same rail as MCU VDDA (the current output is ratiometric) |
+| 1 | 3V3 | MCU 3.3 V in. Same rail as MCU VDDA (the current output is ratiometric). Feeds the sensors through Q1 |
 | 2 | IA | Phase A current, RC-filtered (1 kΩ / 10 nF, fc ≈ 16 kHz) → ADC |
 | 3 | IB | Phase B current → ADC |
 | 4 | IC | Phase C current → ADC |
 | 5 | VA | Phase A voltage (÷35.8, fc ≈ 2.8 kHz) → ADC |
 | 6 | VB | Phase B voltage → ADC |
 | 7 | VC | Phase C voltage → ADC |
-| 8 | FAULT_N | Open-drain wired-OR of all three OCF pins, 10 k pull-up on board, active low at ~77 A |
-| 9, 10 | GND | |
+| 8 | FAULT_N | Open-drain wired-OR of all three OCF pins, 10 k pull-up to +3.3VA, active low (~77 A at the default range) |
+| 9, 10, 14 | GND | |
+| 11 | GS0 | GAIN_SEL_0 of all three sensors (GPIO out) |
+| 12 | GS1 | GAIN_SEL_1 of all three sensors (GPIO out) |
+| 13 | SNS_OFF | High = sensors off (GPIO out). Low or floating = sensors on |
 
 Voltage: `V = adc × (3.3 / 4096) × (96.7 / 2.7)` → ≈ 28.9 mV/count, 118 V full scale (100 V → 2.79 V).
 
