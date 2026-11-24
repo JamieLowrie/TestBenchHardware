@@ -1254,12 +1254,150 @@
           "label": "Datasheet",
           "name": "Datasheet",
           "show": true
+        },
+        {
+          "group_by": false,
+          "label": "Height",
+          "name": "Height",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "JLCPCB MPN",
+          "name": "JLCPCB MPN",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "LCSC",
+          "name": "LCSC",
+          "show": true
+        },
+        {
+          "group_by": false,
+          "label": "LCSC DESCRIPTION",
+          "name": "LCSC DESCRIPTION",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "LCSC Description",
+          "name": "LCSC Description",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MPN",
+          "name": "MPN",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MPN DESCRIPTION",
+          "name": "MPN DESCRIPTION",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Manufacturer_Name",
+          "name": "Manufacturer_Name",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Manufacturer_Part_Number",
+          "name": "Manufacturer_Part_Number",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Mouser Part Number",
+          "name": "Mouser Part Number",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Mouser Price/Stock",
+          "name": "Mouser Price/Stock",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "RS Part Number",
+          "name": "RS Part Number",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "RS Price/Stock",
+          "name": "RS Price/Stock",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "STOCK LEVEL",
+          "name": "STOCK LEVEL",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Sim.Device",
+          "name": "Sim.Device",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Sim.Pins",
+          "name": "Sim.Pins",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "de",
+          "name": "de",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "CPL",
+          "name": "CPL",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Description",
+          "name": "Description",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Arrow Price/Stock",
+          "name": "Arrow Price/Stock",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "#",
+          "name": "${ITEM_NUMBER}",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Arrow Part Number",
+          "name": "Arrow Part Number",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Description_1",
+          "name": "Description_1",
+          "show": false
         }
       ],
       "filter_string": "",
       "group_symbols": true,
       "include_excluded_from_bom": true,
-      "name": "Default Editing",
+      "name": "",
       "sort_asc": true,
       "sort_field": "Reference"
     },
@@ -1304,7 +1442,7 @@
         "uuid": "e0bd0f26-c5a1-5d45-800f-4f195a0cbe1f"
       }
     ],
-    "used_designators": "#PWR38-75,#PWR105-107,C2-10,C15-20,C25-30,C35-42,D1-9,D11-12,IC1-4,IC6-7,J9-10,J20,J25,JP1-3,L1,NT1,Q2-4,R5-10,R17-20,R27-30,R37-66,R102-103,U4-8,Y1-2,Z1-2",
+    "used_designators": "#PWR38-82,#PWR105-107,C2-10,C15-20,C25-30,C35-43,D1-9,D11-12,IC1-4,IC6-7,J8-13,J20,J25,JP1-3,L1,NT1,Q2-4,R5-10,R17-20,R27-30,R37-66,R102-103,SW1-2,U4-8,Y1-2,Z1-2",
     "variants": []
   },
   "sheets": [

@@ -114,7 +114,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Connector_Generic:Conn_01x01"
+		(symbol "Connector:Conn_01x04_Socket"
 			(pin_names
 				(offset 1.016)
 				(hide yes)
@@ -125,7 +125,7 @@
 			(in_pos_files yes)
 			(duplicate_pin_numbers_are_jumpers no)
 			(property "Reference" "J"
-				(at 0 2.54 0)
+				(at 0 5.08 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -134,8 +134,8 @@
 					)
 				)
 			)
-			(property "Value" "Conn_01x01"
-				(at 0 -2.54 0)
+			(property "Value" "Conn_01x04_Socket"
+				(at 0 -7.62 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -155,7 +155,7 @@
 					)
 				)
 			)
-			(property "Datasheet" ""
+			(property "Datasheet" "~"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -166,11 +166,21 @@
 					)
 				)
 			)
-			(property "Description" "Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(property "Description" "Generic connector, single row, 01x04, script generated"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_locked" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -199,21 +209,95 @@
 					)
 				)
 			)
-			(symbol "Conn_01x01_1_1"
-				(rectangle
-					(start -1.27 1.27)
-					(end 1.27 -1.27)
+			(symbol "Conn_01x04_Socket_1_1"
+				(polyline
+					(pts
+						(xy -1.27 2.54) (xy -0.508 2.54)
+					)
 					(stroke
-						(width 0.254)
+						(width 0.1524)
 						(type default)
 					)
 					(fill
-						(type background)
+						(type none)
 					)
 				)
-				(rectangle
-					(start -1.27 0.127)
-					(end 0 -0.127)
+				(polyline
+					(pts
+						(xy -1.27 0) (xy -0.508 0)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 -2.54) (xy -0.508 -2.54)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 -5.08) (xy -0.508 -5.08)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 0 2.032)
+					(mid -0.5058 2.54)
+					(end 0 3.048)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 0 -0.508)
+					(mid -0.5058 0)
+					(end 0 0.508)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 0 -3.048)
+					(mid -0.5058 -2.54)
+					(end 0 -2.032)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 0 -5.588)
+					(mid -0.5058 -5.08)
+					(end 0 -4.572)
 					(stroke
 						(width 0.1524)
 						(type default)
@@ -223,7 +307,7 @@
 					)
 				)
 				(pin passive line
-					(at -5.08 0 0)
+					(at -5.08 2.54 0)
 					(length 3.81)
 					(name "Pin_1"
 						(effects
@@ -233,6 +317,487 @@
 						)
 					)
 					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 3.81)
+					(name "Pin_2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -2.54 0)
+					(length 3.81)
+					(name "Pin_3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -5.08 0)
+					(length 3.81)
+					(name "Pin_4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "Connector:Conn_01x08_Pin"
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "J"
+				(at 0 10.16 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Conn_01x08_Pin"
+				(at 0 -12.7 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Generic connector, single row, 01x08, script generated"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_locked" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "connector"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "Connector*:*_1x??_*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "Conn_01x08_Pin_1_1"
+				(rectangle
+					(start 0.8636 7.747)
+					(end 0 7.493)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start 0.8636 5.207)
+					(end 0 4.953)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start 0.8636 2.667)
+					(end 0 2.413)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start 0.8636 0.127)
+					(end 0 -0.127)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start 0.8636 -2.413)
+					(end 0 -2.667)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start 0.8636 -4.953)
+					(end 0 -5.207)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start 0.8636 -7.493)
+					(end 0 -7.747)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start 0.8636 -10.033)
+					(end 0 -10.287)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 7.62) (xy 0.8636 7.62)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 5.08) (xy 0.8636 5.08)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 2.54) (xy 0.8636 2.54)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 0) (xy 0.8636 0)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 -2.54) (xy 0.8636 -2.54)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 -5.08) (xy 0.8636 -5.08)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 -7.62) (xy 0.8636 -7.62)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 -10.16) (xy 0.8636 -10.16)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at 5.08 7.62 180)
+					(length 3.81)
+					(name "Pin_1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 5.08 180)
+					(length 3.81)
+					(name "Pin_2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 2.54 180)
+					(length 3.81)
+					(name "Pin_3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 3.81)
+					(name "Pin_4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 -2.54 180)
+					(length 3.81)
+					(name "Pin_5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 -5.08 180)
+					(length 3.81)
+					(name "Pin_6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 -7.62 180)
+					(length 3.81)
+					(name "Pin_7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 -10.16 180)
+					(length 3.81)
+					(name "Pin_8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1935,208 +2500,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Jumper:SolderJumper_2_Open"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 0)
-				(hide yes)
-			)
-			(exclude_from_sim yes)
-			(in_bom no)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "JP"
-				(at 0 2.032 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "SolderJumper_2_Open"
-				(at 0 -2.54 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "Solder Jumper, 2-pole, open"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "solder jumper SPST"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_fp_filters" "SolderJumper*Open*"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "SolderJumper_2_Open_0_1"
-				(polyline
-					(pts
-						(xy -0.254 1.016) (xy -0.254 -1.016)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(arc
-					(start -0.254 -1.016)
-					(mid -1.2656 0)
-					(end -0.254 1.016)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(arc
-					(start -0.254 -1.016)
-					(mid -1.2656 0)
-					(end -0.254 1.016)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(arc
-					(start 0.254 1.016)
-					(mid 1.2656 0)
-					(end 0.254 -1.016)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(arc
-					(start 0.254 1.016)
-					(mid 1.2656 0)
-					(end 0.254 -1.016)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.254 1.016) (xy 0.254 -1.016)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "SolderJumper_2_Open_1_1"
-				(pin passive line
-					(at -3.81 0 0)
-					(length 2.54)
-					(name "A"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 3.81 0 180)
-					(length 2.54)
-					(name "B"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "Mechanical:MountingHole"
 			(pin_names
 				(offset 1.016)
@@ -2372,6 +2735,258 @@
 								(size 1.27 1.27)
 							)
 						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "SamacSys_Parts:AMT0440007DB0000G"
+			(pin_names
+				(offset 0.762)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "J"
+				(at 16.51 7.62 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "AMT0440007DB0000G"
+				(at 16.51 5.08 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" "AMT0440007DB0000G"
+				(at 16.51 2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Datasheet" "https://www.anytek.com.cn/Upload/AMT44007DB-5bdf5cc4888149ecabc7ff7c09f663c5.pdf"
+				(at 16.51 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Description" "4 Pin Screw Terminal, Power Tap M4 Through Hole"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description_1" "4 Pin Screw Terminal, Power Tap M4 Through Hole "
+				(at 16.51 -2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Height" "6.9"
+				(at 16.51 -5.08 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Manufacturer_Name" "Amphenol"
+				(at 16.51 -7.62 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Manufacturer_Part_Number" "AMT0440007DB0000G"
+				(at 16.51 -10.16 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Mouser Part Number" "523-AMT0440007DB000G"
+				(at 16.51 -12.7 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Amphenol-Anytek/AMT0440007DB0000G?qs=ST9lo4GX8V0pbblYdZkZwQ%3D%3D"
+				(at 16.51 -15.24 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Arrow Part Number" ""
+				(at 16.51 -17.78 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Arrow Price/Stock" ""
+				(at 16.51 -20.32 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(symbol "AMT0440007DB0000G_0_0"
+				(pin passive line
+					(at 0 -2.54 0)
+					(length 5.08)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 0 0)
+					(length 5.08)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 20.32 -2.54 180)
+					(length 5.08)
+					(name "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 20.32 0 180)
+					(length 5.08)
+					(name "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(symbol "AMT0440007DB0000G_0_1"
+				(polyline
+					(pts
+						(xy 5.08 2.54) (xy 15.24 2.54) (xy 15.24 -5.08) (xy 5.08 -5.08) (xy 5.08 2.54)
+					)
+					(stroke
+						(width 0.1524)
+						(type solid)
+					)
+					(fill
+						(type none)
 					)
 				)
 			)
@@ -3177,6 +3792,354 @@
 						)
 					)
 					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "Switch:SW_Coded_SH-7050"
+			(pin_names
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "SW"
+				(at -7.62 8.89 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "SW_Coded_SH-7050"
+				(at -7.62 -8.89 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" ""
+				(at -7.62 -11.43 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Datasheet" "https://www.nidec-copal-electronics.com/e/catalog/switch/sh-7000.pdf"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Rotary switch, 4-bit encoding, 16 positions, Real code"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "rotary hex Real"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "Nidec*Copal*SH*7010*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "SW_Coded_SH-7050_0_0"
+				(text "8"
+					(at -5.715 0 900)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(text "9"
+					(at -5.2832 2.1844 675)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(text "7"
+					(at -5.2832 -2.1844 1125)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(text "A"
+					(at -4.0386 4.0386 450)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(text "6"
+					(at -4.0386 -4.0386 1350)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(text "B"
+					(at -2.1844 5.2832 225)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(text "5"
+					(at -2.1844 -5.2832 1575)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(text "C"
+					(at 0 5.715 0)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(text "4"
+					(at 0 -5.715 1800)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(text "D"
+					(at 2.1844 5.2832 3375)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(text "3"
+					(at 2.1844 -5.2832 2025)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(text "E"
+					(at 4.0386 4.0386 3150)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(text "2"
+					(at 4.0386 -4.0386 2250)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(text "F"
+					(at 5.2832 2.1844 2925)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(text "1"
+					(at 5.2832 -2.1844 2475)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(text "0"
+					(at 5.715 0 2700)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(symbol "SW_Coded_SH-7050_0_1"
+				(polyline
+					(pts
+						(xy -0.254 -2.54) (xy -0.254 2.032) (xy -0.762 1.524) (xy -1.27 1.524) (xy 0 2.794) (xy 1.27 1.524)
+						(xy 0.762 1.524) (xy 0.254 2.032) (xy 0.254 -2.54) (xy -0.254 -2.54) (xy -0.254 -2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 0 0)
+					(radius 3.81)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start 7.62 7.62)
+					(end -7.62 -7.62)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
+			(symbol "SW_Coded_SH-7050_1_1"
+				(pin passive line
+					(at 10.16 2.54 180)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 10.16 0 180)
+					(length 2.54)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 10.16 -2.54 180)
+					(length 2.54)
+					(name "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 10.16 -5.08 180)
+					(length 2.54)
+					(name "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 10.16 5.08 180)
+					(length 2.54)
+					(name "C"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "C"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -4402,17 +5365,6 @@
 		)
 		(uuid "3fb51241-8cec-562f-a724-dbd90459eb01")
 	)
-	(text "Required for VA/VB/VC: ties this"
-		(exclude_from_sim no)
-		(at 81.28 203.898 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "4409a097-1cf7-5009-a133-766661e939da")
-	)
 	(text "00 = 19.8 mV/A +/-66.7 A (default)   01 = 16.5 mV/A +/-80 A"
 		(exclude_from_sim no)
 		(at 127 84.046 0)
@@ -4501,17 +5453,6 @@
 			(justify left)
 		)
 		(uuid "7743bb13-10e9-5995-98e5-3924e53ab889")
-	)
-	(text "board's GND to the drive's DC-."
-		(exclude_from_sim no)
-		(at 81.28 206.121 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "790a2d15-6d8f-5477-b890-b5864f6d89e0")
 	)
 	(text "DESIGN NOTES"
 		(exclude_from_sim no)
@@ -4724,17 +5665,6 @@
 		)
 		(uuid "d5235438-6673-5716-b431-edaf0b167589")
 	)
-	(text "J8: DRIVE DC- LINK (M4 T44001)"
-		(exclude_from_sim no)
-		(at 81.28 201.676 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "dc5a9f49-9451-5e1a-9435-e5a0609ca645")
-	)
 	(text "FROM DRIVE, M4 T44001"
 		(exclude_from_sim no)
 		(at 236.22 60.198 0)
@@ -4874,6 +5804,12 @@
 		(uuid "39c1f07b-3b0c-4eec-b128-a77008608d07")
 	)
 	(junction
+		(at 10.16 68.58)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "3b20b3fc-cfb3-4f76-bb36-19ab731a15fb")
+	)
+	(junction
 		(at 43.18 58.42)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4898,6 +5834,12 @@
 		(uuid "4911480a-1844-438c-a677-2bc81a99c0a1")
 	)
 	(junction
+		(at 229.87 55.88)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "4a3c47a9-ffd3-4761-976f-9feb89212592")
+	)
+	(junction
 		(at 170.18 247.65)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4910,10 +5852,34 @@
 		(uuid "4d8fd029-5086-5e49-a71d-1ae8b81d075d")
 	)
 	(junction
+		(at 140.97 57.15)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "4e2cb874-c596-4b41-bd38-46cfedb0b103")
+	)
+	(junction
+		(at 140.97 55.88)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "52cf1350-f20b-4008-a82c-8fbc9d9ee875")
+	)
+	(junction
 		(at 153.67 245.11)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "5a0a3708-80e3-4519-bc34-abae1f536b79")
+	)
+	(junction
+		(at 30.48 57.15)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "5e126101-a5d9-4a08-864b-00510fc4c83c")
+	)
+	(junction
+		(at 140.97 69.85)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "5ff2a6e7-9c3a-4c59-b0c6-25d3d7e847a8")
 	)
 	(junction
 		(at 152.4 68.58)
@@ -4946,6 +5912,12 @@
 		(uuid "787b0f25-4ed4-4284-9a4c-24ad3e460060")
 	)
 	(junction
+		(at 30.48 55.88)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "79896b15-2258-47ae-9325-fbba781a444d")
+	)
+	(junction
 		(at 127 198.12)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4964,6 +5936,24 @@
 		(uuid "94f4912f-f338-5b66-8b90-a74a4357af8c")
 	)
 	(junction
+		(at 140.97 68.58)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "974b1b7e-44bd-44af-b09a-e5887574398f")
+	)
+	(junction
+		(at 30.48 68.58)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "9959017a-aa32-4b93-be07-77113590980d")
+	)
+	(junction
+		(at 120.65 55.88)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "a27dd62d-820d-4821-a13b-14ad19c6bf6b")
+	)
+	(junction
 		(at 125.73 247.65)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4976,10 +5966,22 @@
 		(uuid "a65ce750-cd17-4cee-b76a-7b00ee9edbe4")
 	)
 	(junction
-		(at 360.68 130.81)
+		(at 250.19 57.15)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "bce04a85-59e3-4bb0-8f0e-df16f5bbcb76")
+		(uuid "b3b29054-7538-41ff-8920-995a435f5739")
+	)
+	(junction
+		(at 10.16 55.88)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b49d595e-87fa-4bd5-8026-5a2afbd68a9c")
+	)
+	(junction
+		(at 30.48 69.85)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "bd2e170f-6fff-4f07-b0eb-879ef45307ad")
 	)
 	(junction
 		(at 45.72 172.72)
@@ -5024,6 +6026,12 @@
 		(uuid "d4a8bc3a-81be-5093-87cd-37fdf5f0df58")
 	)
 	(junction
+		(at 250.19 68.58)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d9cc4ec5-1697-4bc7-911d-65d357d23b1d")
+	)
+	(junction
 		(at 113.03 250.19)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -5042,10 +6050,34 @@
 		(uuid "ec897b0f-416a-5f18-b4d7-fdfce3f5896f")
 	)
 	(junction
+		(at 250.19 69.85)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ed147e8f-1f5d-4785-be5a-122a76aa692a")
+	)
+	(junction
 		(at 125.73 255.27)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ee55009d-741c-4b46-8e7c-3576780f6371")
+	)
+	(junction
+		(at 229.87 68.58)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "f1297e82-9355-4c4c-b4b2-9ed3158cf9b4")
+	)
+	(junction
+		(at 250.19 55.88)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "fb852184-5089-451d-af2c-4bb9c727d90e")
+	)
+	(junction
+		(at 120.65 68.58)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "fcaa1ab0-cb52-4f9b-9c7a-917f39d248da")
 	)
 	(no_connect
 		(at 73.66 55.88)
@@ -5066,6 +6098,26 @@
 	(no_connect
 		(at 289.56 181.61)
 		(uuid "988b3508-96e4-4848-b134-a9b548dc2e55")
+	)
+	(wire
+		(pts
+			(xy 378.46 148.59) (xy 382.27 148.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "02706ee1-da5c-4518-a3c7-925303db701b")
+	)
+	(wire
+		(pts
+			(xy 140.97 54.61) (xy 140.97 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "03ba85d4-3d34-4fcf-970a-f3e3dc7aaf76")
 	)
 	(wire
 		(pts
@@ -5149,6 +6201,16 @@
 	)
 	(wire
 		(pts
+			(xy 229.87 55.88) (xy 229.87 57.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0a768c95-ea92-4751-b787-2d0e18923138")
+	)
+	(wire
+		(pts
 			(xy 351.79 214.63) (xy 351.79 213.36)
 		)
 		(stroke
@@ -5166,6 +6228,16 @@
 			(type default)
 		)
 		(uuid "0b17a60a-f0fa-50fc-b59c-3a4d47dd24e2")
+	)
+	(wire
+		(pts
+			(xy 250.19 54.61) (xy 250.19 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0bd0fae0-0145-47d8-9bde-098437ec19fd")
 	)
 	(wire
 		(pts
@@ -5229,16 +6301,6 @@
 	)
 	(wire
 		(pts
-			(xy 68.58 203.2) (xy 68.58 208.28)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0f3f8b53-5c15-59fb-8548-383a18ba5847")
-	)
-	(wire
-		(pts
 			(xy 170.18 35.56) (xy 170.18 48.26)
 		)
 		(stroke
@@ -5269,6 +6331,26 @@
 	)
 	(wire
 		(pts
+			(xy 382.27 143.51) (xy 382.27 142.24)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "119a1a55-b9e8-4465-b3a9-f1bca9023533")
+	)
+	(wire
+		(pts
+			(xy 140.97 67.31) (xy 140.97 68.58)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "12073fc3-e2eb-4830-a965-50ade6c4130f")
+	)
+	(wire
+		(pts
 			(xy 85.09 172.72) (xy 87.63 172.72)
 		)
 		(stroke
@@ -5276,6 +6358,16 @@
 			(type default)
 		)
 		(uuid "120b1ac6-a501-5dff-bb43-a1e71e79b240")
+	)
+	(wire
+		(pts
+			(xy 250.19 68.58) (xy 250.19 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "12bf03a1-f6b5-4532-bc50-e02805cc27ff")
 	)
 	(wire
 		(pts
@@ -5349,6 +6441,16 @@
 	)
 	(wire
 		(pts
+			(xy 29.21 224.79) (xy 34.29 224.79)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "17a95f7d-d063-4000-82dd-0f7542335655")
+	)
+	(wire
+		(pts
 			(xy 45.72 182.88) (xy 45.72 185.42)
 		)
 		(stroke
@@ -5366,6 +6468,16 @@
 			(type default)
 		)
 		(uuid "1dc7ba1a-71b2-5582-8691-c4729bbc3eeb")
+	)
+	(wire
+		(pts
+			(xy 29.21 242.57) (xy 34.29 242.57)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1dcf322b-3af6-4046-a2ff-0de06e60f8e4")
 	)
 	(wire
 		(pts
@@ -5499,6 +6611,16 @@
 	)
 	(wire
 		(pts
+			(xy 21.59 257.81) (xy 34.29 257.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2e197f69-80a2-460c-83eb-7c6f6a58c82a")
+	)
+	(wire
+		(pts
 			(xy 261.62 57.15) (xy 261.62 58.42)
 		)
 		(stroke
@@ -5526,6 +6648,16 @@
 			(type default)
 		)
 		(uuid "314fb8fa-d35b-4650-b1a5-1208a14e7c7f")
+	)
+	(wire
+		(pts
+			(xy 31.75 222.25) (xy 34.29 222.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "31c1bdda-ffae-4fcf-9ec8-8234107db257")
 	)
 	(wire
 		(pts
@@ -5649,6 +6781,16 @@
 	)
 	(wire
 		(pts
+			(xy 26.67 273.05) (xy 34.29 273.05)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3c13e25e-181e-42ec-9800-6011f7b6f0d7")
+	)
+	(wire
+		(pts
 			(xy 101.6 60.96) (xy 101.6 63.5)
 		)
 		(stroke
@@ -5739,6 +6881,16 @@
 	)
 	(wire
 		(pts
+			(xy 10.16 67.31) (xy 10.16 68.58)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4494429f-3e96-4b27-876c-bce7997435da")
+	)
+	(wire
+		(pts
 			(xy 127 195.58) (xy 127 198.12)
 		)
 		(stroke
@@ -5786,6 +6938,16 @@
 			(type default)
 		)
 		(uuid "479e3193-fa5c-53b1-832f-4f1422b810a7")
+	)
+	(wire
+		(pts
+			(xy 378.46 153.67) (xy 382.27 153.67)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "48e92520-47d2-4d84-a804-4b275ba6773d")
 	)
 	(wire
 		(pts
@@ -5856,6 +7018,16 @@
 			(type default)
 		)
 		(uuid "4c32d214-2ee5-401b-873b-07494eb0917f")
+	)
+	(wire
+		(pts
+			(xy 30.48 55.88) (xy 30.48 57.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4c68e294-42e8-4d7a-adc0-cf3243ec922d")
 	)
 	(wire
 		(pts
@@ -5946,6 +7118,16 @@
 			(type default)
 		)
 		(uuid "54d2d22a-90fa-506f-b299-412e7b3d24ee")
+	)
+	(wire
+		(pts
+			(xy 30.48 67.31) (xy 30.48 68.58)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "54fbea6f-021b-47a7-b979-f6a55cd01a71")
 	)
 	(wire
 		(pts
@@ -6119,13 +7301,23 @@
 	)
 	(wire
 		(pts
-			(xy 365.76 142.24) (xy 365.76 148.59)
+			(xy 387.35 148.59) (xy 393.7 148.59)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "63aa8336-12b9-4c94-9f44-13dfd119d741")
+	)
+	(wire
+		(pts
+			(xy 10.16 55.88) (xy 30.48 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "63e7cc72-ac75-41b3-8f84-af8f3b1968dd")
 	)
 	(wire
 		(pts
@@ -6189,6 +7381,26 @@
 	)
 	(wire
 		(pts
+			(xy 229.87 55.88) (xy 250.19 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "69916a68-9014-42bf-b929-b8bdd38bf890")
+	)
+	(wire
+		(pts
+			(xy 209.55 171.45) (xy 217.17 171.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6a4cbbee-aae8-4cfc-a55a-9d1745e12c5a")
+	)
+	(wire
+		(pts
 			(xy 119.38 252.73) (xy 125.73 252.73)
 		)
 		(stroke
@@ -6196,6 +7408,16 @@
 			(type default)
 		)
 		(uuid "6aa89432-7502-4666-a1bd-e9c34e071b7a")
+	)
+	(wire
+		(pts
+			(xy 29.21 240.03) (xy 34.29 240.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6ab3a7b2-dd2f-49bf-bc0b-90e02c56e1f0")
 	)
 	(wire
 		(pts
@@ -6259,17 +7481,17 @@
 	)
 	(wire
 		(pts
-			(xy 68.58 203.2) (xy 71.12 203.2)
+			(xy 285.75 186.69) (xy 289.56 186.69)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "711e3d43-8480-56e1-a116-3f61f806495a")
+		(uuid "708098be-5e38-4247-8632-fd2a04028311")
 	)
 	(wire
 		(pts
-			(xy 360.68 142.24) (xy 360.68 148.59)
+			(xy 387.35 146.05) (xy 393.7 146.05)
 		)
 		(stroke
 			(width 0)
@@ -6329,6 +7551,16 @@
 	)
 	(wire
 		(pts
+			(xy 378.46 143.51) (xy 382.27 143.51)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "74a20e7f-365d-4f7f-8562-0c3ae5d046f7")
+	)
+	(wire
+		(pts
 			(xy 152.4 68.58) (xy 157.48 68.58)
 		)
 		(stroke
@@ -6369,6 +7601,16 @@
 	)
 	(wire
 		(pts
+			(xy 21.59 275.59) (xy 34.29 275.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7a09674f-473e-4b2f-912a-3b41302f02da")
+	)
+	(wire
+		(pts
 			(xy 152.4 66.04) (xy 157.48 66.04)
 		)
 		(stroke
@@ -6406,6 +7648,16 @@
 			(type default)
 		)
 		(uuid "7c75cfdf-e7e3-5de4-9a88-45b791d2d939")
+	)
+	(wire
+		(pts
+			(xy 229.87 68.58) (xy 229.87 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7c9fd2c1-c528-428e-874a-07693e1562b4")
 	)
 	(wire
 		(pts
@@ -6479,6 +7731,16 @@
 	)
 	(wire
 		(pts
+			(xy 31.75 229.87) (xy 34.29 229.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "80d5a036-2ca2-4126-a161-e0c5f956d8c2")
+	)
+	(wire
+		(pts
 			(xy 101.6 53.34) (xy 111.76 53.34)
 		)
 		(stroke
@@ -6509,6 +7771,16 @@
 	)
 	(wire
 		(pts
+			(xy 140.97 55.88) (xy 140.97 57.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "82b7264d-7379-4303-9fd8-8bf089588d79")
+	)
+	(wire
+		(pts
 			(xy 38.1 160.02) (xy 50.8 160.02)
 		)
 		(stroke
@@ -6516,6 +7788,16 @@
 			(type default)
 		)
 		(uuid "835168cf-d72e-5b26-b8d9-0d8d6341172a")
+	)
+	(wire
+		(pts
+			(xy 30.48 68.58) (xy 30.48 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "84b8e2a4-df23-4728-9d97-676eecded209")
 	)
 	(wire
 		(pts
@@ -6559,6 +7841,16 @@
 	)
 	(wire
 		(pts
+			(xy 229.87 67.31) (xy 229.87 68.58)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "857c4da5-40a2-4fcd-83cc-0bd577413cd0")
+	)
+	(wire
+		(pts
 			(xy 294.64 73.66) (xy 294.64 76.2)
 		)
 		(stroke
@@ -6566,6 +7858,26 @@
 			(type default)
 		)
 		(uuid "85881baa-d827-58b3-93ec-c0035ab764d7")
+	)
+	(wire
+		(pts
+			(xy 120.65 55.88) (xy 140.97 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8593ae4d-6324-4915-8f27-bdf4f7e16bf0")
+	)
+	(wire
+		(pts
+			(xy 378.46 151.13) (xy 382.27 151.13)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "860a0a43-4f39-404e-9992-9ef4361ab160")
 	)
 	(wire
 		(pts
@@ -6586,6 +7898,16 @@
 			(type default)
 		)
 		(uuid "870506f5-df3f-557c-abcd-909638673495")
+	)
+	(wire
+		(pts
+			(xy 120.65 68.58) (xy 120.65 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8810da10-131d-42cc-ada6-d5fecb7c646b")
 	)
 	(wire
 		(pts
@@ -6639,6 +7961,36 @@
 	)
 	(wire
 		(pts
+			(xy 10.16 54.61) (xy 10.16 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8b7274e2-fa72-496e-a392-cc303369b8d7")
+	)
+	(wire
+		(pts
+			(xy 229.87 68.58) (xy 250.19 68.58)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8cd88bf6-8e96-4a81-9adf-e6322392fc0f")
+	)
+	(wire
+		(pts
+			(xy 31.75 237.49) (xy 34.29 237.49)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8e787067-35db-486e-a8fd-395f8868bbd3")
+	)
+	(wire
+		(pts
 			(xy 60.96 35.56) (xy 60.96 48.26)
 		)
 		(stroke
@@ -6689,6 +8041,16 @@
 	)
 	(wire
 		(pts
+			(xy 120.65 55.88) (xy 120.65 57.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "923c9764-6486-447f-8f75-7a28d49b88f0")
+	)
+	(wire
+		(pts
 			(xy 152.4 58.42) (xy 157.48 58.42)
 		)
 		(stroke
@@ -6699,6 +8061,16 @@
 	)
 	(wire
 		(pts
+			(xy 10.16 68.58) (xy 30.48 68.58)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "932eb0cd-4311-49f1-985b-4a94b4df8845")
+	)
+	(wire
+		(pts
 			(xy 43.18 68.58) (xy 48.26 68.58)
 		)
 		(stroke
@@ -6706,16 +8078,6 @@
 			(type default)
 		)
 		(uuid "94907887-f7c4-572e-936c-d33aa399d4bd")
-	)
-	(wire
-		(pts
-			(xy 212.09 171.45) (xy 217.17 171.45)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "95069811-66a5-4871-8107-e37359ec3c49")
 	)
 	(wire
 		(pts
@@ -6829,16 +8191,6 @@
 	)
 	(wire
 		(pts
-			(xy 360.68 130.81) (xy 365.76 130.81)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9f254fea-dcf7-4c6d-979c-3aa2d9c4840e")
-	)
-	(wire
-		(pts
 			(xy 209.55 194.31) (xy 217.17 194.31)
 		)
 		(stroke
@@ -6929,6 +8281,26 @@
 	)
 	(wire
 		(pts
+			(xy 10.16 68.58) (xy 10.16 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a8e1d0d2-c18d-4889-a3d6-95265d89c936")
+	)
+	(wire
+		(pts
+			(xy 387.35 153.67) (xy 393.7 153.67)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a9235db5-3900-43bc-9139-8c2cd8e395c7")
+	)
+	(wire
+		(pts
 			(xy 72.39 261.62) (xy 100.33 261.62)
 		)
 		(stroke
@@ -6959,6 +8331,16 @@
 	)
 	(wire
 		(pts
+			(xy 120.65 68.58) (xy 140.97 68.58)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ae8f0d05-3f9e-45c3-8aff-793d50e8893e")
+	)
+	(wire
+		(pts
 			(xy 209.55 184.15) (xy 217.17 184.15)
 		)
 		(stroke
@@ -6986,16 +8368,6 @@
 			(type default)
 		)
 		(uuid "b10e2a12-3b73-4c92-a3b9-9bafba284277")
-	)
-	(wire
-		(pts
-			(xy 365.76 137.16) (xy 365.76 130.81)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b24182fa-70c5-4451-888a-0d86be361ac7")
 	)
 	(wire
 		(pts
@@ -7036,6 +8408,16 @@
 			(type default)
 		)
 		(uuid "b4ca9e4b-eaa1-40ee-ac4b-68a28a6c4026")
+	)
+	(wire
+		(pts
+			(xy 120.65 67.31) (xy 120.65 68.58)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b6ae7f38-db3c-4b6f-bb40-dcdfe2c1119f")
 	)
 	(wire
 		(pts
@@ -7086,6 +8468,16 @@
 			(type default)
 		)
 		(uuid "baffc8bc-56da-5c33-a44a-177a8ae766f2")
+	)
+	(wire
+		(pts
+			(xy 120.65 54.61) (xy 120.65 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bb9254cd-d8d4-4574-beaa-56d3a47b1dbc")
 	)
 	(wire
 		(pts
@@ -7179,6 +8571,16 @@
 	)
 	(wire
 		(pts
+			(xy 140.97 68.58) (xy 140.97 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c27b27a1-c43d-4d82-b3c3-d4c5d3e2061a")
+	)
+	(wire
+		(pts
 			(xy 261.62 68.58) (xy 266.7 68.58)
 		)
 		(stroke
@@ -7206,6 +8608,16 @@
 			(type default)
 		)
 		(uuid "c3dbdb05-c33b-5847-b195-7d9fab0b66ea")
+	)
+	(wire
+		(pts
+			(xy 378.46 146.05) (xy 382.27 146.05)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c4bf814d-a31f-4f16-ad27-dffa20ffc912")
 	)
 	(wire
 		(pts
@@ -7276,6 +8688,16 @@
 			(type default)
 		)
 		(uuid "cabf6b12-6111-4ac5-896a-14201598bc50")
+	)
+	(wire
+		(pts
+			(xy 250.19 67.31) (xy 250.19 68.58)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "caea679a-f171-4053-8852-2cd97ce1dcd6")
 	)
 	(wire
 		(pts
@@ -7389,6 +8811,16 @@
 	)
 	(wire
 		(pts
+			(xy 10.16 55.88) (xy 10.16 57.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "da8dc326-26b7-4999-b4a1-d536e5569ce0")
+	)
+	(wire
+		(pts
 			(xy 38.1 157.48) (xy 50.8 157.48)
 		)
 		(stroke
@@ -7396,6 +8828,16 @@
 			(type default)
 		)
 		(uuid "da8df05c-cc4d-50b1-a940-156ea0f2949e")
+	)
+	(wire
+		(pts
+			(xy 209.55 168.91) (xy 217.17 168.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "da9405bb-4ed0-4cfe-b56f-33ef64c50c37")
 	)
 	(wire
 		(pts
@@ -7549,6 +8991,26 @@
 	)
 	(wire
 		(pts
+			(xy 29.21 227.33) (xy 34.29 227.33)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e302da72-f71f-4f06-8806-ac4ca658122d")
+	)
+	(wire
+		(pts
+			(xy 250.19 55.88) (xy 250.19 57.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e6a6ce33-4f95-4bf9-8562-67bd4c735c50")
+	)
+	(wire
+		(pts
 			(xy 54.61 99.06) (xy 66.04 99.06)
 		)
 		(stroke
@@ -7556,16 +9018,6 @@
 			(type default)
 		)
 		(uuid "e70a5bde-8a1b-50b7-9807-8e6c15ad8519")
-	)
-	(wire
-		(pts
-			(xy 212.09 168.91) (xy 217.17 168.91)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ea085c8e-74d9-4f7f-9d40-c08035fbdf92")
 	)
 	(wire
 		(pts
@@ -7586,6 +9038,16 @@
 			(type default)
 		)
 		(uuid "eeea3311-6277-5e2a-8033-76a46bb0b325")
+	)
+	(wire
+		(pts
+			(xy 31.75 245.11) (xy 34.29 245.11)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "eef46b70-2a49-4b8b-bad9-a06a0a07b7b3")
 	)
 	(wire
 		(pts
@@ -7629,6 +9091,16 @@
 	)
 	(wire
 		(pts
+			(xy 30.48 54.61) (xy 30.48 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f19d67d1-3701-4630-84d2-1e86c5b08144")
+	)
+	(wire
+		(pts
 			(xy 152.4 60.96) (xy 157.48 60.96)
 		)
 		(stroke
@@ -7669,6 +9141,26 @@
 	)
 	(wire
 		(pts
+			(xy 229.87 54.61) (xy 229.87 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f6aba5e1-5e5f-4ee8-a9a3-b6204973025e")
+	)
+	(wire
+		(pts
+			(xy 387.35 151.13) (xy 393.7 151.13)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f74d4025-0ec9-466d-8673-8a2979e7e3f8")
+	)
+	(wire
+		(pts
 			(xy 261.62 58.42) (xy 261.62 60.96)
 		)
 		(stroke
@@ -7679,13 +9171,13 @@
 	)
 	(wire
 		(pts
-			(xy 360.68 130.81) (xy 360.68 137.16)
+			(xy 285.75 184.15) (xy 289.56 184.15)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "fa152328-0180-4d2e-8c0a-e1867430390a")
+		(uuid "faddcd74-e4d7-4455-8293-85261a90ce60")
 	)
 	(wire
 		(pts
@@ -7716,6 +9208,26 @@
 			(justify left bottom)
 		)
 		(uuid "03a0fe53-444b-4782-8f50-603feffcb613")
+	)
+	(label "SPI_MISO"
+		(at 34.29 260.35 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "054cdbcf-e1e8-435f-94cb-7218698f5364")
+	)
+	(label "CAN_L"
+		(at 29.21 227.33 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "0773541f-492c-4775-b3df-535a9eb8eee3")
 	)
 	(label "SPI_CLK"
 		(at 72.39 259.08 180)
@@ -7828,12 +9340,12 @@
 		(uuid "22eebaac-a3ac-521d-912c-6bd472febb0d")
 	)
 	(label "ID1"
-		(at 360.68 156.21 270)
+		(at 393.7 146.05 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
 		(uuid "246443af-a8da-4416-a9eb-918cce0be04e")
 	)
@@ -7977,6 +9489,16 @@
 		)
 		(uuid "4511d0d3-0e37-4b53-a2fc-dfd5e64b4143")
 	)
+	(label "ID3"
+		(at 285.75 184.15 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "47a71ddd-5779-48b0-9908-4debd0b71fdc")
+	)
 	(label "CAN_H"
 		(at 281.94 196.85 0)
 		(effects
@@ -7986,6 +9508,26 @@
 			(justify left bottom)
 		)
 		(uuid "4916a685-80cd-44aa-b6f4-0e5915ebbe80")
+	)
+	(label "CAN_H"
+		(at 29.21 224.79 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "4a0baa88-d23a-4ddb-a220-c15a18854fd0")
+	)
+	(label "ID4"
+		(at 285.75 186.69 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "505b4a58-db63-451f-86a0-9b393c0444b1")
 	)
 	(label "SPARE_ANA4"
 		(at 285.75 168.91 180)
@@ -8127,6 +9669,16 @@
 		)
 		(uuid "6a96ec2c-855c-57c4-8618-8435bef8269a")
 	)
+	(label "CAN_L"
+		(at 29.21 242.57 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "6add62a9-80a1-4738-b4eb-d4d6f7bb4072")
+	)
 	(label "GS1"
 		(at 82.55 71.12 0)
 		(effects
@@ -8136,6 +9688,16 @@
 			(justify left)
 		)
 		(uuid "6af7c7e6-5af0-5689-932e-581a399c3e11")
+	)
+	(label "ID3"
+		(at 209.55 168.91 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "6bb125fa-b9a3-44b2-b027-829d49d70145")
 	)
 	(label "GS0"
 		(at 300.99 68.58 0)
@@ -8247,6 +9809,16 @@
 		)
 		(uuid "840563a3-54c3-479b-907f-64fb18905198")
 	)
+	(label "CAN_H"
+		(at 29.21 240.03 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "85482638-76c5-497f-84b1-a6a84ca4756f")
+	)
 	(label "SNS_OFF"
 		(at 38.1 180.34 180)
 		(effects
@@ -8288,14 +9860,24 @@
 		(uuid "986e9a6c-5ddf-5b89-a9ca-ca85b308431b")
 	)
 	(label "ID2"
-		(at 365.76 156.21 270)
+		(at 393.7 148.59 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
 		(uuid "99f18593-f62d-480a-b085-9300a511e4aa")
+	)
+	(label "ID4"
+		(at 393.7 153.67 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "9a4080e8-2814-45a8-a6b6-5446858387e7")
 	)
 	(label "CAN_L"
 		(at 281.94 199.39 0)
@@ -8387,6 +9969,16 @@
 		)
 		(uuid "a9ee845f-2918-4220-9f7f-f8ed975a158a")
 	)
+	(label "ID3"
+		(at 393.7 151.13 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b00e99f0-0e6e-4c22-9cd5-5b4f9b837002")
+	)
 	(label "SNS_OFF"
 		(at 114.3 198.12 180)
 		(effects
@@ -8466,6 +10058,16 @@
 			(justify right)
 		)
 		(uuid "c5058f62-baf5-5aac-9040-be314e526382")
+	)
+	(label "SPI_MOSI"
+		(at 34.29 262.89 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "c6d7e18c-b7ef-421b-91c0-7c3294d0ab13")
 	)
 	(label "IA"
 		(at 209.55 189.23 180)
@@ -8567,6 +10169,16 @@
 		)
 		(uuid "d6fa406e-b348-481c-b540-7bf9b03048bd")
 	)
+	(label "ID4"
+		(at 209.55 171.45 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "d9865c04-d5f2-4428-a6c0-fe435ad8f884")
+	)
 	(label "VOC_C"
 		(at 304.8 53.34 0)
 		(effects
@@ -8596,6 +10208,16 @@
 			(justify left)
 		)
 		(uuid "e20aa825-4cb8-572f-8396-2c1ad810defa")
+	)
+	(label "SPI_NSS"
+		(at 34.29 267.97 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "e5347399-aa49-4c6c-9793-9be928c29fc9")
 	)
 	(label "VB"
 		(at 209.55 179.07 180)
@@ -8687,6 +10309,16 @@
 		)
 		(uuid "f209ba3d-5321-4088-a9f1-51f0c891515f")
 	)
+	(label "SPI_CLK"
+		(at 34.29 265.43 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "f29b1a19-1890-4af5-82ff-e072a00a687e")
+	)
 	(label "SPI_MISO"
 		(at 283.21 212.09 180)
 		(effects
@@ -8736,6 +10368,104 @@
 			(justify right bottom)
 		)
 		(uuid "fdd8dd3b-d9a7-4f6e-a1dc-4fb4be1f700d")
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x04_Socket")
+		(at 39.37 224.79 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "004b1902-52d9-4d95-8f46-5d4b91cb00de")
+		(property "Reference" "J13"
+			(at 40.64 226.06 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "CAN"
+			(at 33.655 219.075 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Connector_JST:JST_GH_BM04B-GHS-TBT_1x04-1MP_P1.25mm_Vertical"
+			(at 39.37 224.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 39.37 224.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 39.37 224.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "DNF"
+			(at 39.37 224.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "e4b35f48-3661-4620-a497-777bb88d858c")
+		)
+		(pin "3"
+			(uuid "5d8f7f1f-c868-4574-9b92-2765d044d6f7")
+		)
+		(pin "2"
+			(uuid "a2d61b31-b230-47b2-80ba-0414f69d2e91")
+		)
+		(pin "4"
+			(uuid "d720c7a9-ab23-4c86-bfb2-bf84ce79f022")
+		)
+		(instances
+			(project "phase_sense"
+				(path "/e0bd0f26-c5a1-5d45-800f-4f195a0cbe1f"
+					(reference "J13")
+					(unit 1)
+				)
+			)
+		)
 	)
 	(symbol
 		(lib_id "power:GND")
@@ -8900,6 +10630,279 @@
 			(project "phase_sense"
 				(path "/e0bd0f26-c5a1-5d45-800f-4f195a0cbe1f"
 					(reference "C14")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "SamacSys_Parts:AMT0440007DB0000G")
+		(at 120.65 54.61 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "047bfccc-d0e5-403b-907d-b8621e7ade35")
+		(property "Reference" "J4"
+			(at 137.414 51.816 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "AMT0440007DB0000G"
+			(at 130.81 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "AMT0440007DB0000G"
+			(at 137.16 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Datasheet" "https://www.anytek.com.cn/Upload/AMT44007DB-5bdf5cc4888149ecabc7ff7c09f663c5.pdf"
+			(at 137.16 54.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Description" "4 Pin Screw Terminal, Power Tap M4 Through Hole"
+			(at 120.65 54.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description_1" "4 Pin Screw Terminal, Power Tap M4 Through Hole "
+			(at 137.16 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Height" "6.9"
+			(at 137.16 59.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Manufacturer_Name" "Amphenol"
+			(at 137.16 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Manufacturer_Part_Number" "AMT0440007DB0000G"
+			(at 137.16 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Mouser Part Number" "523-AMT0440007DB000G"
+			(at 137.16 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Amphenol-Anytek/AMT0440007DB0000G?qs=ST9lo4GX8V0pbblYdZkZwQ%3D%3D"
+			(at 137.16 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Arrow Part Number" ""
+			(at 137.16 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Arrow Price/Stock" ""
+			(at 137.16 74.93 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "LCSC" "C481447"
+			(at 120.65 54.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "ebf8c73e-b3fe-4ab4-befb-b3f837834aa1")
+		)
+		(pin "4"
+			(uuid "052143a9-b71b-4f34-8a1b-e2f877819d04")
+		)
+		(pin "3"
+			(uuid "b967db2b-3c91-4867-9a34-5fdcd016d863")
+		)
+		(pin "2"
+			(uuid "fb77d027-5e01-4899-b8be-b09da02b120d")
+		)
+		(instances
+			(project "phase_sense"
+				(path "/e0bd0f26-c5a1-5d45-800f-4f195a0cbe1f"
+					(reference "J4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "CANANA-1 Test-rescue:GND-power")
+		(at 21.59 257.81 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "054c2a3f-1c98-4cf5-ac1a-d3b3f5ad4c0b")
+		(property "Reference" "#PWR075"
+			(at 21.59 264.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 21.717 262.2042 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 21.59 257.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 21.59 257.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 21.59 257.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "0db62386-03d7-4529-b4a5-fc452be14883")
+		)
+		(instances
+			(project "phase_sense"
+				(path "/e0bd0f26-c5a1-5d45-800f-4f195a0cbe1f"
+					(reference "#PWR075")
 					(unit 1)
 				)
 			)
@@ -9250,6 +11253,121 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R_Small")
+		(at 384.81 151.13 90)
+		(mirror x)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "0b41fb98-7360-453f-a508-bd2f4348baf3")
+		(property "Reference" "R65"
+			(at 382.778 152.146 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10K"
+			(at 390.906 152.146 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 384.81 151.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 384.81 151.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 384.81 151.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Description" "62.5mW Thick Film Resistors 50V ±100ppm/℃ ±1% 10kΩ 0402 Chip Resistor - Surface Mount ROHS"
+			(at 384.81 151.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer_Part_Number" "0402WGF1002TCE"
+			(at 384.81 151.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25744"
+			(at 384.81 151.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "a63f444c-a519-4958-aecf-0b1c62c5901d")
+		)
+		(pin "1"
+			(uuid "23e737c1-dfc3-451e-be00-1860b40bed79")
+		)
+		(instances
+			(project "phase_sense"
+				(path "/e0bd0f26-c5a1-5d45-800f-4f195a0cbe1f"
+					(reference "R65")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "phase_sense:ACS37002xMA")
 		(at 60.96 63.5 0)
 		(unit 1)
@@ -9383,6 +11501,107 @@
 		)
 	)
 	(symbol
+		(lib_id "Switch:SW_Coded_SH-7050")
+		(at 368.3 148.59 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "0c3464b4-a185-4c61-b54d-650b6b2141c4")
+		(property "Reference" "SW2"
+			(at 368.3 135.89 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SW_Coded_SH-7050"
+			(at 368.3 138.43 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Button_Switch_SMD:Nidec_Copal_SH-7010B"
+			(at 360.68 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Datasheet" "https://www.nidec-copal-electronics.com/e/catalog/switch/sh-7000.pdf"
+			(at 368.3 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Rotary switch, 4-bit encoding, 16 positions, Real code"
+			(at 368.3 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C5183894"
+			(at 368.3 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "C"
+			(uuid "f7635c4b-a66e-46e7-a378-d46f7feb0876")
+		)
+		(pin "4"
+			(uuid "2b9d3a99-6b08-4161-8ec8-51b9dcef79f3")
+		)
+		(pin "8"
+			(uuid "45ef6ae0-76f9-4e1b-a273-6d782b825d64")
+		)
+		(pin "1"
+			(uuid "d040773f-ec78-464d-86e2-2caa0d006725")
+		)
+		(pin "2"
+			(uuid "c9797e72-0930-4316-8def-56cf29422781")
+		)
+		(instances
+			(project "phase_sense"
+				(path "/e0bd0f26-c5a1-5d45-800f-4f195a0cbe1f"
+					(reference "SW2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+3V3")
 		(at 157.48 160.02 0)
 		(unit 1)
@@ -9454,6 +11673,201 @@
 			(project "phase_sense"
 				(path "/e0bd0f26-c5a1-5d45-800f-4f195a0cbe1f"
 					(reference "#PWR035")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "SamacSys_Parts:AMT0440007DB0000G")
+		(at 120.65 67.31 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "0cef5fcb-9acb-45fe-b91d-72e23e662a2a")
+		(property "Reference" "J5"
+			(at 137.922 64.516 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "AMT0440007DB0000G"
+			(at 130.81 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "AMT0440007DB0000G"
+			(at 137.16 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Datasheet" "https://www.anytek.com.cn/Upload/AMT44007DB-5bdf5cc4888149ecabc7ff7c09f663c5.pdf"
+			(at 137.16 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Description" "4 Pin Screw Terminal, Power Tap M4 Through Hole"
+			(at 120.65 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description_1" "4 Pin Screw Terminal, Power Tap M4 Through Hole "
+			(at 137.16 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Height" "6.9"
+			(at 137.16 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Manufacturer_Name" "Amphenol"
+			(at 137.16 74.93 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Manufacturer_Part_Number" "AMT0440007DB0000G"
+			(at 137.16 77.47 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Mouser Part Number" "523-AMT0440007DB000G"
+			(at 137.16 80.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Amphenol-Anytek/AMT0440007DB0000G?qs=ST9lo4GX8V0pbblYdZkZwQ%3D%3D"
+			(at 137.16 82.55 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Arrow Part Number" ""
+			(at 137.16 85.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Arrow Price/Stock" ""
+			(at 137.16 87.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "LCSC" "C481447"
+			(at 120.65 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "8b2b73e2-b16c-4068-9513-54927b6c8e6d")
+		)
+		(pin "4"
+			(uuid "d9195725-2914-4343-82ee-a0c8a67756cd")
+		)
+		(pin "3"
+			(uuid "7807f726-3f0b-46da-b83c-fff7166dcf6d")
+		)
+		(pin "2"
+			(uuid "44d25e88-8b53-42d7-8bc4-0add9cc3825a")
+		)
+		(instances
+			(project "phase_sense"
+				(path "/e0bd0f26-c5a1-5d45-800f-4f195a0cbe1f"
+					(reference "J5")
 					(unit 1)
 				)
 			)
@@ -9630,7 +12044,8 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 360.68 139.7 0)
+		(at 384.81 146.05 90)
+		(mirror x)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9640,7 +12055,7 @@
 		(dnp no)
 		(uuid "139ea75f-5deb-4a9b-961e-1cea97ce3fc0")
 		(property "Reference" "R63"
-			(at 361.696 137.668 90)
+			(at 382.778 147.066 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9651,7 +12066,7 @@
 			)
 		)
 		(property "Value" "10K"
-			(at 361.696 145.796 90)
+			(at 390.906 147.066 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9662,7 +12077,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 360.68 139.7 0)
+			(at 384.81 146.05 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9673,7 +12088,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 360.68 139.7 0)
+			(at 384.81 146.05 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9684,7 +12099,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 360.68 139.7 0)
+			(at 384.81 146.05 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9695,7 +12110,7 @@
 			)
 		)
 		(property "LCSC Description" "62.5mW Thick Film Resistors 50V ±100ppm/℃ ±1% 10kΩ 0402 Chip Resistor - Surface Mount ROHS"
-			(at 360.68 139.7 0)
+			(at 384.81 146.05 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9706,7 +12121,7 @@
 			)
 		)
 		(property "Manufacturer_Part_Number" "0402WGF1002TCE"
-			(at 360.68 139.7 0)
+			(at 384.81 146.05 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9717,7 +12132,7 @@
 			)
 		)
 		(property "LCSC" "C25744"
-			(at 360.68 139.7 0)
+			(at 384.81 146.05 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10512,6 +12927,201 @@
 		)
 	)
 	(symbol
+		(lib_id "SamacSys_Parts:AMT0440007DB0000G")
+		(at 10.16 54.61 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "2612d71e-b1d4-4644-98eb-7d6127aef60c")
+		(property "Reference" "J2"
+			(at 30.734 52.832 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "AMT0440007DB0000G"
+			(at 20.32 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "AMT0440007DB0000G"
+			(at 26.67 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Datasheet" "https://www.anytek.com.cn/Upload/AMT44007DB-5bdf5cc4888149ecabc7ff7c09f663c5.pdf"
+			(at 26.67 54.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Description" "4 Pin Screw Terminal, Power Tap M4 Through Hole"
+			(at 10.16 54.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description_1" "4 Pin Screw Terminal, Power Tap M4 Through Hole "
+			(at 26.67 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Height" "6.9"
+			(at 26.67 59.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Manufacturer_Name" "Amphenol"
+			(at 26.67 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Manufacturer_Part_Number" "AMT0440007DB0000G"
+			(at 26.67 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Mouser Part Number" "523-AMT0440007DB000G"
+			(at 26.67 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Amphenol-Anytek/AMT0440007DB0000G?qs=ST9lo4GX8V0pbblYdZkZwQ%3D%3D"
+			(at 26.67 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Arrow Part Number" ""
+			(at 26.67 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Arrow Price/Stock" ""
+			(at 26.67 74.93 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "LCSC" "C481447"
+			(at 10.16 54.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "ba272443-1f83-48b9-bb8e-920a70abea71")
+		)
+		(pin "4"
+			(uuid "633a643d-bc68-48df-af88-83c08e15300a")
+		)
+		(pin "3"
+			(uuid "c6b246f0-8f9c-404d-9f0d-28165ca2a238")
+		)
+		(pin "2"
+			(uuid "f7c285bd-cad5-4e85-abe2-a8c0eaaf91d0")
+		)
+		(instances
+			(project "phase_sense"
+				(path "/e0bd0f26-c5a1-5d45-800f-4f195a0cbe1f"
+					(reference "J2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 294.64 109.22 0)
 		(unit 1)
@@ -10678,6 +13288,201 @@
 		)
 	)
 	(symbol
+		(lib_id "SamacSys_Parts:AMT0440007DB0000G")
+		(at 10.16 67.31 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "27b4b76f-8e1f-4709-b35f-7fe63075432e")
+		(property "Reference" "J3"
+			(at 30.48 65.024 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "AMT0440007DB0000G"
+			(at 20.32 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "AMT0440007DB0000G"
+			(at 26.67 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Datasheet" "https://www.anytek.com.cn/Upload/AMT44007DB-5bdf5cc4888149ecabc7ff7c09f663c5.pdf"
+			(at 26.67 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Description" "4 Pin Screw Terminal, Power Tap M4 Through Hole"
+			(at 10.16 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description_1" "4 Pin Screw Terminal, Power Tap M4 Through Hole "
+			(at 26.67 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Height" "6.9"
+			(at 26.67 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Manufacturer_Name" "Amphenol"
+			(at 26.67 74.93 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Manufacturer_Part_Number" "AMT0440007DB0000G"
+			(at 26.67 77.47 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Mouser Part Number" "523-AMT0440007DB000G"
+			(at 26.67 80.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Amphenol-Anytek/AMT0440007DB0000G?qs=ST9lo4GX8V0pbblYdZkZwQ%3D%3D"
+			(at 26.67 82.55 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Arrow Part Number" ""
+			(at 26.67 85.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Arrow Price/Stock" ""
+			(at 26.67 87.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "LCSC" "C481447"
+			(at 10.16 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "e5c8095f-98e3-4e4f-987a-1395de55b3ae")
+		)
+		(pin "4"
+			(uuid "be8d1113-ef66-41f9-a53c-b8978b954bd0")
+		)
+		(pin "3"
+			(uuid "042d274f-91af-4737-a60e-4c35842474d9")
+		)
+		(pin "2"
+			(uuid "a9437409-e52e-4c6e-adb2-a9a8d592f240")
+		)
+		(instances
+			(project "phase_sense"
+				(path "/e0bd0f26-c5a1-5d45-800f-4f195a0cbe1f"
+					(reference "J3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 265.43 261.62 0)
 		(unit 1)
@@ -10756,7 +13561,8 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 365.76 139.7 0)
+		(at 384.81 148.59 90)
+		(mirror x)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -10766,7 +13572,7 @@
 		(dnp no)
 		(uuid "31d25d13-bf7a-4e37-92db-5bb15fdc05e2")
 		(property "Reference" "R64"
-			(at 366.776 137.414 90)
+			(at 382.524 149.606 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10777,7 +13583,7 @@
 			)
 		)
 		(property "Value" "10K"
-			(at 366.776 145.796 90)
+			(at 390.906 149.606 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10788,7 +13594,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 365.76 139.7 0)
+			(at 384.81 148.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10799,7 +13605,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 365.76 139.7 0)
+			(at 384.81 148.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10810,7 +13616,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 365.76 139.7 0)
+			(at 384.81 148.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10821,7 +13627,7 @@
 			)
 		)
 		(property "LCSC Description" "62.5mW Thick Film Resistors 50V ±100ppm/℃ ±1% 10kΩ 0402 Chip Resistor - Surface Mount ROHS"
-			(at 365.76 139.7 0)
+			(at 384.81 148.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10832,7 +13638,7 @@
 			)
 		)
 		(property "Manufacturer_Part_Number" "0402WGF1002TCE"
-			(at 365.76 139.7 0)
+			(at 384.81 148.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10843,7 +13649,7 @@
 			)
 		)
 		(property "LCSC" "C25744"
-			(at 365.76 139.7 0)
+			(at 384.81 148.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11275,6 +14081,201 @@
 			(project "phase_sense"
 				(path "/e0bd0f26-c5a1-5d45-800f-4f195a0cbe1f"
 					(reference "R24")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "SamacSys_Parts:AMT0440007DB0000G")
+		(at 229.87 54.61 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "46246324-0f18-4e60-8e6d-5264949bbb9e")
+		(property "Reference" "J6"
+			(at 251.714 53.34 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "AMT0440007DB0000G"
+			(at 240.03 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "AMT0440007DB0000G"
+			(at 246.38 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Datasheet" "https://www.anytek.com.cn/Upload/AMT44007DB-5bdf5cc4888149ecabc7ff7c09f663c5.pdf"
+			(at 246.38 54.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Description" "4 Pin Screw Terminal, Power Tap M4 Through Hole"
+			(at 229.87 54.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description_1" "4 Pin Screw Terminal, Power Tap M4 Through Hole "
+			(at 246.38 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Height" "6.9"
+			(at 246.38 59.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Manufacturer_Name" "Amphenol"
+			(at 246.38 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Manufacturer_Part_Number" "AMT0440007DB0000G"
+			(at 246.38 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Mouser Part Number" "523-AMT0440007DB000G"
+			(at 246.38 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Amphenol-Anytek/AMT0440007DB0000G?qs=ST9lo4GX8V0pbblYdZkZwQ%3D%3D"
+			(at 246.38 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Arrow Part Number" ""
+			(at 246.38 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Arrow Price/Stock" ""
+			(at 246.38 74.93 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "LCSC" "C481447"
+			(at 229.87 54.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "ef173cae-b8f6-449c-8001-6261a7fd5292")
+		)
+		(pin "4"
+			(uuid "1d834ac7-959a-4ade-a9c9-da73cfe47142")
+		)
+		(pin "3"
+			(uuid "1dcbea47-1290-437f-b9ef-a134d39df215")
+		)
+		(pin "2"
+			(uuid "a6de97c7-6525-44ed-9e5a-51d9b455649f")
+		)
+		(instances
+			(project "phase_sense"
+				(path "/e0bd0f26-c5a1-5d45-800f-4f195a0cbe1f"
+					(reference "J6")
 					(unit 1)
 				)
 			)
@@ -12181,6 +15182,84 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+3V3")
+		(at 26.67 273.05 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "6476938a-90fe-42c3-b858-d65d1cc65a0b")
+		(property "Reference" "#PWR076"
+			(at 24.13 271.78 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 26.416 269.494 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 26.67 273.05 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 26.67 273.05 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 26.67 273.05 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "2e83fe35-dfe5-476b-96ec-6b97b5f33c69")
+		)
+		(instances
+			(project "phase_sense"
+				(path "/e0bd0f26-c5a1-5d45-800f-4f195a0cbe1f"
+					(reference "#PWR076")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R")
 		(at 284.48 102.87 0)
 		(unit 1)
@@ -12266,83 +15345,6 @@
 			(project "phase_sense"
 				(path "/e0bd0f26-c5a1-5d45-800f-4f195a0cbe1f"
 					(reference "R36")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 68.58 208.28 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "676b9d86-6b68-5db3-a537-90f61aba4b5d")
-		(property "Reference" "#PWR028"
-			(at 71.12 207.01 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "GNDA"
-			(at 68.58 212.68 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 68.58 208.28 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 68.58 208.28 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 68.58 208.28 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "77ddd53c-a9bb-5566-bc1f-fa3b15dadbe9")
-		)
-		(instances
-			(project "phase_sense"
-				(path "/e0bd0f26-c5a1-5d45-800f-4f195a0cbe1f"
-					(reference "#PWR028")
 					(unit 1)
 				)
 			)
@@ -12847,7 +15849,7 @@
 	)
 	(symbol
 		(lib_id "power:+5V")
-		(at 360.68 130.81 0)
+		(at 382.27 142.24 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -12858,7 +15860,7 @@
 		(fields_autoplaced yes)
 		(uuid "78260340-702b-46f9-b085-106a565df102")
 		(property "Reference" "#PWR074"
-			(at 360.68 134.62 0)
+			(at 382.27 146.05 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12869,7 +15871,7 @@
 			)
 		)
 		(property "Value" "+5V"
-			(at 360.68 125.73 0)
+			(at 382.27 137.16 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12879,7 +15881,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 360.68 130.81 0)
+			(at 382.27 142.24 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12890,7 +15892,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 360.68 130.81 0)
+			(at 382.27 142.24 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12901,7 +15903,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 360.68 130.81 0)
+			(at 382.27 142.24 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12996,96 +15998,6 @@
 			(project "phase_sense"
 				(path "/e0bd0f26-c5a1-5d45-800f-4f195a0cbe1f"
 					(reference "#PWR067")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector_Generic:Conn_01x01")
-		(at 243.84 57.15 0)
-		(mirror y)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "7ca17f75-8577-5bde-b4ab-b75ed8d86ebd")
-		(property "Reference" "J6"
-			(at 242.57 54.61 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "T44001"
-			(at 246.38 58.42 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "phase_sense:XFCN_T44001_M4_Terminal"
-			(at 243.84 57.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 243.84 57.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 243.84 57.15 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C481447"
-			(at 243.84 57.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "7acc4550-3aae-561e-b767-95ac50b07e0f")
-		)
-		(instances
-			(project "phase_sense"
-				(path "/e0bd0f26-c5a1-5d45-800f-4f195a0cbe1f"
-					(reference "J6")
 					(unit 1)
 				)
 			)
@@ -13566,6 +16478,115 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:Conn_01x08_Pin")
+		(at 39.37 265.43 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "84e40bdb-6bc6-4bba-956d-4a98f1cf0594")
+		(property "Reference" "J11"
+			(at 38.735 252.73 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Conn_01x08_Pin"
+			(at 38.735 255.27 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_JST:JST_GH_BM09B-GHS-TBT_1x09-1MP_P1.25mm_Vertical"
+			(at 39.37 265.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 39.37 265.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 39.37 265.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "DNF"
+			(at 39.37 265.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "8"
+			(uuid "1ff3ba51-4e44-4ba3-ad2d-6f1fe59aabf8")
+		)
+		(pin "5"
+			(uuid "60d9b236-ec9f-4256-9f3e-de1a6aa1f91c")
+		)
+		(pin "6"
+			(uuid "ed46c5e6-db00-45b3-90cc-9cccd329d3b9")
+		)
+		(pin "2"
+			(uuid "c6e4477f-bb9e-40b6-bddb-c95756eff0ce")
+		)
+		(pin "3"
+			(uuid "db0a138a-2832-400d-9365-377fa57e24ce")
+		)
+		(pin "1"
+			(uuid "857c6484-adc9-4502-ac83-b42d62b9b8b4")
+		)
+		(pin "7"
+			(uuid "3bb1a3fc-933b-48f6-866e-dfbd3ad7ff26")
+		)
+		(pin "4"
+			(uuid "bb07189f-ce75-4513-b313-ed144544a707")
+		)
+		(instances
+			(project "phase_sense"
+				(path "/e0bd0f26-c5a1-5d45-800f-4f195a0cbe1f"
+					(reference "J11")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 185.42 76.2 0)
 		(unit 1)
@@ -13791,6 +16812,121 @@
 			(project "phase_sense"
 				(path "/e0bd0f26-c5a1-5d45-800f-4f195a0cbe1f"
 					(reference "#PWR034")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 384.81 153.67 90)
+		(mirror x)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "86ba6304-3698-4246-b3d9-8587b2f159ee")
+		(property "Reference" "R66"
+			(at 382.524 154.686 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10K"
+			(at 390.906 154.686 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 384.81 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 384.81 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 384.81 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Description" "62.5mW Thick Film Resistors 50V ±100ppm/℃ ±1% 10kΩ 0402 Chip Resistor - Surface Mount ROHS"
+			(at 384.81 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer_Part_Number" "0402WGF1002TCE"
+			(at 384.81 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25744"
+			(at 384.81 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "83b04c48-2f2f-4ae2-b365-25b5b2bbaf17")
+		)
+		(pin "1"
+			(uuid "b7e18278-87ee-41d8-8a95-2a11bf7b1748")
+		)
+		(instances
+			(project "phase_sense"
+				(path "/e0bd0f26-c5a1-5d45-800f-4f195a0cbe1f"
+					(reference "R66")
 					(unit 1)
 				)
 			)
@@ -14694,9 +17830,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector_Generic:Conn_01x01")
-		(at 25.4 69.85 0)
-		(mirror y)
+		(lib_id "power:+5V")
+		(at 31.75 222.25 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -14704,21 +17839,20 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "9e59f418-495f-5e17-a2d5-00add7e2b444")
-		(property "Reference" "J3"
-			(at 24.13 67.31 0)
+		(uuid "9e02bc60-122f-46f3-bc0f-bb64efb237e6")
+		(property "Reference" "#PWR081"
+			(at 35.56 222.25 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
-		(property "Value" "T44001"
-			(at 27.94 71.12 0)
-			(hide yes)
+		(property "Value" "+5V"
+			(at 28.575 221.615 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -14728,8 +17862,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "phase_sense:XFCN_T44001_M4_Terminal"
-			(at 25.4 69.85 0)
+		(property "Footprint" ""
+			(at 31.75 222.25 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14740,7 +17874,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 25.4 69.85 0)
+			(at 31.75 222.25 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14751,17 +17885,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 25.4 69.85 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C481447"
-			(at 25.4 69.85 0)
+			(at 31.75 222.25 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14772,12 +17896,91 @@
 			)
 		)
 		(pin "1"
-			(uuid "77f8d4a8-dfc9-58cd-820d-623730840493")
+			(uuid "5cde73ac-b236-4c3c-8dac-ff6528f9f437")
 		)
 		(instances
 			(project "phase_sense"
 				(path "/e0bd0f26-c5a1-5d45-800f-4f195a0cbe1f"
-					(reference "J3")
+					(reference "#PWR081")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 31.75 229.87 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "9f4f6800-49a5-4edf-8455-108cff6859d8")
+		(property "Reference" "#PWR082"
+			(at 25.4 229.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 27.94 229.87 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 31.75 229.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 31.75 229.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 31.75 229.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "09394901-2b31-4498-8f38-7e3ead888686")
+		)
+		(instances
+			(project "phase_sense"
+				(path "/e0bd0f26-c5a1-5d45-800f-4f195a0cbe1f"
+					(reference "#PWR082")
 					(unit 1)
 				)
 			)
@@ -15244,95 +18447,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector_Generic:Conn_01x01")
-		(at 76.2 203.2 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "aa68590e-d74f-5dd1-8e88-917eb8797af7")
-		(property "Reference" "J8"
-			(at 73.66 199.39 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "T44001"
-			(at 78.74 204.47 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "phase_sense:XFCN_T44001_M4_Terminal"
-			(at 76.2 203.2 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 76.2 203.2 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 76.2 203.2 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C481447"
-			(at 76.2 203.2 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "ef34eba6-08f5-5447-8cdf-b348bac34a49")
-		)
-		(instances
-			(project "phase_sense"
-				(path "/e0bd0f26-c5a1-5d45-800f-4f195a0cbe1f"
-					(reference "J8")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R")
 		(at 210.82 57.15 0)
 		(unit 1)
@@ -15418,6 +18532,84 @@
 			(project "phase_sense"
 				(path "/e0bd0f26-c5a1-5d45-800f-4f195a0cbe1f"
 					(reference "R22")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+5V")
+		(at 31.75 237.49 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "af6dd4c1-287c-4c41-b3d8-d9d550d8599a")
+		(property "Reference" "#PWR079"
+			(at 35.56 237.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+5V"
+			(at 28.575 236.855 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 31.75 237.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 31.75 237.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 31.75 237.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "3bbb5664-c29c-4efb-968f-c1882eb805fe")
+		)
+		(instances
+			(project "phase_sense"
+				(path "/e0bd0f26-c5a1-5d45-800f-4f195a0cbe1f"
+					(reference "#PWR079")
 					(unit 1)
 				)
 			)
@@ -15938,85 +19130,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Jumper:SolderJumper_2_Open")
-		(at 365.76 152.4 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim yes)
-		(in_bom no)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "b883a4f7-c0ba-477f-b516-2fb3fbb4ef83")
-		(property "Reference" "JP2"
-			(at 366.776 155.448 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "ID2"
-			(at 363.728 149.352 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm"
-			(at 365.76 152.4 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 365.76 152.4 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Solder Jumper, 2-pole, open"
-			(at 365.76 152.4 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "e8e5e7c6-bba7-4623-9e36-6e93c148e803")
-		)
-		(pin "1"
-			(uuid "74dfa54f-718e-4570-b8e0-b0ba9175a4f7")
-		)
-		(instances
-			(project "phase_sense"
-				(path "/e0bd0f26-c5a1-5d45-800f-4f195a0cbe1f"
-					(reference "JP2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 76.2 76.2 0)
 		(unit 1)
@@ -16416,6 +19529,84 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+5V")
+		(at 21.59 275.59 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c5bb47b7-fcd6-4101-8511-f046280ca02a")
+		(property "Reference" "#PWR077"
+			(at 21.59 279.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+5V"
+			(at 21.59 270.51 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 21.59 275.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 21.59 275.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 21.59 275.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "4d824f1f-a31a-4da2-8939-e9f0d9d4dddc")
+		)
+		(instances
+			(project "phase_sense"
+				(path "/e0bd0f26-c5a1-5d45-800f-4f195a0cbe1f"
+					(reference "#PWR077")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "phase_sense:ACS37002xMA")
 		(at 279.4 63.5 0)
 		(unit 1)
@@ -16549,6 +19740,104 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:Conn_01x04_Socket")
+		(at 39.37 240.03 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "c7421965-f563-40d8-98b6-a6fd5095d441")
+		(property "Reference" "J12"
+			(at 40.64 241.3 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "CAN"
+			(at 33.655 234.315 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Connector_JST:JST_GH_BM04B-GHS-TBT_1x04-1MP_P1.25mm_Vertical"
+			(at 39.37 240.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 39.37 240.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 39.37 240.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "DNF"
+			(at 39.37 240.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "ae9d791d-f611-4706-ba11-39b0b91260c3")
+		)
+		(pin "3"
+			(uuid "ac9bc9b9-2a75-4b4a-9dd3-af3d1f5e08fc")
+		)
+		(pin "2"
+			(uuid "6a781a39-411e-4462-a873-db2e7cd9d56d")
+		)
+		(pin "4"
+			(uuid "4d7702c5-a118-486e-be11-f15ab2ef8bc1")
+		)
+		(instances
+			(project "phase_sense"
+				(path "/e0bd0f26-c5a1-5d45-800f-4f195a0cbe1f"
+					(reference "J12")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R")
 		(at 210.82 49.53 0)
 		(unit 1)
@@ -16640,9 +19929,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector_Generic:Conn_01x01")
-		(at 243.84 69.85 0)
-		(mirror y)
+		(lib_id "power:GND")
+		(at 31.75 245.11 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -16650,9 +19938,21 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "cc757860-5b11-5e28-a1b1-21ab1357f553")
-		(property "Reference" "J7"
-			(at 242.57 67.31 0)
+		(fields_autoplaced yes)
+		(uuid "d14e564e-7c38-4154-8cb0-9fb9407c9975")
+		(property "Reference" "#PWR080"
+			(at 25.4 245.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 27.94 245.11 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -16662,20 +19962,8 @@
 				(justify right)
 			)
 		)
-		(property "Value" "T44001"
-			(at 246.38 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "phase_sense:XFCN_T44001_M4_Terminal"
-			(at 243.84 69.85 0)
+		(property "Footprint" ""
+			(at 31.75 245.11 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16686,7 +19974,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 243.84 69.85 0)
+			(at 31.75 245.11 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16697,17 +19985,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 243.84 69.85 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C481447"
-			(at 243.84 69.85 0)
+			(at 31.75 245.11 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16718,12 +19996,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "ec251a8a-76f8-5d2f-b5fd-ce97707e55d8")
+			(uuid "3f176934-756c-4789-bddf-f4e14442e4bf")
 		)
 		(instances
 			(project "phase_sense"
 				(path "/e0bd0f26-c5a1-5d45-800f-4f195a0cbe1f"
-					(reference "J7")
+					(reference "#PWR080")
 					(unit 1)
 				)
 			)
@@ -17131,96 +20409,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector_Generic:Conn_01x01")
-		(at 134.62 69.85 0)
-		(mirror y)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "dc01748f-c7b4-588e-9d76-29d10bb8b30c")
-		(property "Reference" "J5"
-			(at 133.35 67.31 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "T44001"
-			(at 137.16 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "phase_sense:XFCN_T44001_M4_Terminal"
-			(at 134.62 69.85 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 134.62 69.85 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 134.62 69.85 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C481447"
-			(at 134.62 69.85 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "a3eacebe-6021-5d0f-9bb7-b7f4614c1a1b")
-		)
-		(instances
-			(project "phase_sense"
-				(path "/e0bd0f26-c5a1-5d45-800f-4f195a0cbe1f"
-					(reference "J5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R")
 		(at 254 99.06 90)
 		(unit 1)
@@ -17304,96 +20492,6 @@
 			(project "phase_sense"
 				(path "/e0bd0f26-c5a1-5d45-800f-4f195a0cbe1f"
 					(reference "R34")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector_Generic:Conn_01x01")
-		(at 134.62 57.15 0)
-		(mirror y)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "df2e1a94-d22a-5bc1-b782-a707c18bf03f")
-		(property "Reference" "J4"
-			(at 133.35 54.61 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "T44001"
-			(at 137.16 58.42 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "phase_sense:XFCN_T44001_M4_Terminal"
-			(at 134.62 57.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 134.62 57.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 134.62 57.15 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C481447"
-			(at 134.62 57.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "c74d1d63-77a8-5173-b0fb-5c1c05b9a9e6")
-		)
-		(instances
-			(project "phase_sense"
-				(path "/e0bd0f26-c5a1-5d45-800f-4f195a0cbe1f"
-					(reference "J4")
 					(unit 1)
 				)
 			)
@@ -17639,6 +20737,201 @@
 			(project "phase_sense"
 				(path "/e0bd0f26-c5a1-5d45-800f-4f195a0cbe1f"
 					(reference "C1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "SamacSys_Parts:AMT0440007DB0000G")
+		(at 229.87 67.31 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "e538947b-0851-4ab6-b32f-de017df2ffb5")
+		(property "Reference" "J7"
+			(at 251.46 65.786 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "AMT0440007DB0000G"
+			(at 240.03 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "AMT0440007DB0000G"
+			(at 246.38 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Datasheet" "https://www.anytek.com.cn/Upload/AMT44007DB-5bdf5cc4888149ecabc7ff7c09f663c5.pdf"
+			(at 246.38 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Description" "4 Pin Screw Terminal, Power Tap M4 Through Hole"
+			(at 229.87 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description_1" "4 Pin Screw Terminal, Power Tap M4 Through Hole "
+			(at 246.38 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Height" "6.9"
+			(at 246.38 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Manufacturer_Name" "Amphenol"
+			(at 246.38 74.93 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Manufacturer_Part_Number" "AMT0440007DB0000G"
+			(at 246.38 77.47 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Mouser Part Number" "523-AMT0440007DB000G"
+			(at 246.38 80.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Amphenol-Anytek/AMT0440007DB0000G?qs=ST9lo4GX8V0pbblYdZkZwQ%3D%3D"
+			(at 246.38 82.55 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Arrow Part Number" ""
+			(at 246.38 85.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Arrow Price/Stock" ""
+			(at 246.38 87.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "LCSC" "C481447"
+			(at 229.87 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "0e4e8f1c-dfbd-4a76-856b-68f937477034")
+		)
+		(pin "4"
+			(uuid "cae3ca14-299e-4e09-9d3f-a1fc4c9fbf97")
+		)
+		(pin "3"
+			(uuid "3b8e0cdc-2c3a-406d-b367-f08c0aac7253")
+		)
+		(pin "2"
+			(uuid "96d8dfa5-4331-4695-be62-e33ec684b71d")
+		)
+		(instances
+			(project "phase_sense"
+				(path "/e0bd0f26-c5a1-5d45-800f-4f195a0cbe1f"
+					(reference "J7")
 					(unit 1)
 				)
 			)
@@ -18622,175 +21915,6 @@
 			(project "phase_sense"
 				(path "/e0bd0f26-c5a1-5d45-800f-4f195a0cbe1f"
 					(reference "#FLG02")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector_Generic:Conn_01x01")
-		(at 25.4 57.15 0)
-		(mirror y)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "f9b98cb8-d911-5b13-9586-7b07dc204c9b")
-		(property "Reference" "J2"
-			(at 24.13 54.61 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "T44001"
-			(at 27.94 58.42 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "phase_sense:XFCN_T44001_M4_Terminal"
-			(at 25.4 57.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 25.4 57.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 25.4 57.15 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C481447"
-			(at 25.4 57.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "6f6e756f-5f80-53ee-bead-9d11a09e4130")
-		)
-		(instances
-			(project "phase_sense"
-				(path "/e0bd0f26-c5a1-5d45-800f-4f195a0cbe1f"
-					(reference "J2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Jumper:SolderJumper_2_Open")
-		(at 360.68 152.4 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim yes)
-		(in_bom no)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "fa6fdb86-c5a9-47ad-b7f5-c00c9a4cd50a")
-		(property "Reference" "JP1"
-			(at 361.696 155.194 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "ID1"
-			(at 358.394 149.352 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm"
-			(at 360.68 152.4 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 360.68 152.4 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Solder Jumper, 2-pole, open"
-			(at 360.68 152.4 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "53531128-291f-4089-8cfc-5a73ed78f7dd")
-		)
-		(pin "2"
-			(uuid "804a766d-1a4f-4089-95e1-2e5ff0b57166")
-		)
-		(instances
-			(project "phase_sense"
-				(path "/e0bd0f26-c5a1-5d45-800f-4f195a0cbe1f"
-					(reference "JP1")
 					(unit 1)
 				)
 			)
